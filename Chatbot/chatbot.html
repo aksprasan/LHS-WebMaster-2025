@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Forsyth County, GA Help Chatbot</title>
+   <style>
+  :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0}
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    background: rgb(159, 49, 49); /* requested background */
+  }
+
+  .chat-wrap{
+    width:100%;
+    max-width:860px;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 6px 20px rgba(15,23,42,.12);
+    overflow:hidden;
+  }
+
+  .header{
+    padding:18px 20px;
+    background:linear-gradient(90deg,#0b0b0b,rgb(181, 53, 53));
+    color:#fff;
+  }
+  .header h1{margin:0;font-size:18px}
+
+  .main{display:flex;gap:20px;padding:20px}
+  .pane{flex:1;min-height:360px}
+
+  .chat{
+    height:360px;
+    overflow:auto;
+    padding:12px;
+    border:1px solid #e6eef9;
+    border-radius:8px;
+    background:#f8fbff;
+  }
+
+  .msg{margin:8px 0;display:flex}
+  .msg.user{justify-content:flex-end}
+
+  .bubble{
+    max-width:72%;
+    padding:10px 12px;
+    border-radius:12px;
+    background:#fff;
+    border:1px solid #e0e7ff;
+    color:#0b1220;
+    white-space:pre-wrap;
+  }
+
+  .bubble.user{
+    background: rgb(159, 49, 49);
+    color:#fff;
+    border:none;
+  }
+
+  .input-area{display:flex;gap:8px;margin-top:12px}
+  input[type="text"]{
+    flex:1;
+    padding:10px 12px;
+    border-radius:8px;
+    border:1px solid #dbeafe;
+    outline:none;
+  }
+  input[type="text"]:focus{
+    border-color: rgba(159,49,49,.75);
+    box-shadow: 0 0 0 3px rgba(159,49,49,.18);
+  }
+
+  button{
+    padding:10px 12px;
+    border-radius:8px;
+    border:none;
+    background: rgb(159, 49, 49);
+    color:#fff;
+    cursor:pointer;
+  }
+  button:hover{filter:brightness(.98)}
+
+  .suggestions{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    background:#fff;
+    padding:8px 10px;
+    border-radius:999px;
+    cursor:pointer;
+    border:1px solid rgba(159,49,49,.35);
+    color:#0b1220;
+  }
+  .chip:hover{background:rgba(159,49,49,.06)}
+
+  .service{
+    border-left:4px solid rgb(159, 49, 49);
+    background:#fff;
+    padding:12px;
+    margin:10px 0;
+    border-radius:6px;
+  }
+  .service h3{margin:0 0 6px 0;font-size:15px}
+  .service p{margin:0 0 8px 0;color:#334155}
+  .service a{
+    color: rgb(159, 49, 49);
+    text-decoration:none;
+    font-weight:700;
+  }
+  .service a:hover{text-decoration:underline}
+
+  .footer{padding:12px 20px;font-size:13px;color:#475569}
+  .footer a{
+    color: rgb(159, 49, 49);
+    font-weight:700;
+    text-decoration:none;
+  }
+  .footer a:hover{text-decoration:underline}
+
+  @media (max-width:780px){
+    .main{flex-direction:column}
+    .chat{height:320px}
+  }
+</style>
+
+  </head>
+
+  <body>
+    <div class="chat-wrap">
+      <div class="header">
+        <h1>Forsyth County, GA Help Chatbot</h1>
+      </div>
+
+      <div class="main">
+        <div class="pane">
+          <div id="chat" class="chat" aria-live="polite"></div>
+
+          <div class="input-area">
+            <input
+              id="userInput"
+              type="text"
+              placeholder='Describe your situation (ex: "I need food", "eviction", "help paying power bill")'
+              autocomplete="off"
+            />
+            <button id="sendBtn">Send</button>
+          </div>
+
+          <div class="suggestions" id="quickBtns"></div>
+        </div>
+
+        <div class="pane" style="max-width:380px">
+          <h2 style="margin-top:0">How I can help</h2>
+          <p style="color:#334155;margin-top:6px">
+            Type what you need or click a quick button. I’ll show Forsyth County, GA–relevant resources and links.
+          </p>
+          <div id="servicesArea"></div>
+        </div>
+      </div>
+
+      <div class="footer">
+        If someone is in immediate danger, call <b>911</b>. For 24/7 crisis support, you can call/text <b>988</b>.
+        For general community resources, try
+        <a href="https://www.211.org" target="_blank" rel="noopener noreferrer">211.org</a>.
+      </div>
+    </div>
+
+    <script>
+      // Forsyth County, GA-focused resource list (real links).
+      const SERVICES = [
+        {
+          id: "housing",
+          keywords: ["housing","homeless","shelter","eviction","rent","staying","couch","foreclosure"],
+          title: "Housing / Homelessness Help (Forsyth & Nearby)",
+          description: "Family Promise of Forsyth County supports families facing homelessness and housing instability. The Place also helps with essential needs and navigation.",
+          links: [
+            { label: "Family Promise of Forsyth County", url: "https://www.fpforsyth.org/" },
+            { label: "The Place of Forsyth (assistance)", url: "https://www.theplacega.org/" },
+            { label: "United Way 2-1-1 (search local housing help)", url: "https://www.211.org/" }
+          ]
+        },
+        {
+          id: "food",
+          keywords: ["food","meals","food pantry","pantry","hunger","groceries","snack","eat"],
+          title: "Food Assistance (Pantries & Meals)",
+          description: "Local pantries and meal programs in/near Forsyth County. You can also use 2-1-1 to find options closest to your address.",
+          links: [
+            { label: "Georgia Mountain Food Bank – Forsyth County list", url: "https://www.gamountainfoodbank.org/how-we-feed/feeding-partners/find-an-agency-near-you/forsyth-county/" },
+            { label: "Meals By Grace (Forsyth/Dawson)", url: "https://mealsbygrace.org/" },
+            { label: "The Place of Forsyth", url: "https://www.theplacega.org/" }
+          ]
+        },
+        {
+          id: "mental",
+          keywords: ["mental","depress","depression","anxiety","panic","therapy","counseling","counsellor","counselor","crisis","suicide","self harm","self-harm"],
+          title: "Mental Health & Crisis Support (24/7)",
+          description: "If you or someone you know is in crisis, help is available 24/7. For non-emergency support, Georgia’s crisis system can connect you to local services.",
+          links: [
+            { label: "Call/Text 988 (crisis support)", url: "https://988lifeline.org/" },
+            { label: "Georgia Crisis & Access Line (GCAL) info", url: "https://dbhdd.georgia.gov/be-dbhdd/be-supported/mental-health-adults/adult-mental-health-crisis-services" },
+            { label: "United Way 2-1-1 (find counseling/resources)", url: "https://www.211.org/" }
+          ]
+        },
+        {
+          id: "substance",
+          keywords: ["drug","drugs","alcohol","addiction","substance","rehab","detox","overdose","opioid"],
+          title: "Substance Use & Recovery",
+          description: "Georgia crisis services and 2-1-1 can help connect you to local treatment and recovery support.",
+          links: [
+            { label: "Georgia DBHDD", url: "https://dbhdd.georgia.gov/" },
+            { label: "United Way 2-1-1 (treatment referrals)", url: "https://www.211.org/" }
+          ]
+        },
+        {
+          id: "domestic",
+          keywords: ["domestic","abuse","violence","partner","safe","restraining","stalking"],
+          title: "Domestic Violence / Safe Shelter",
+          description: "Confidential help, crisis support, and referrals for safety planning and shelter in Forsyth County.",
+          links: [
+            { label: "Family Haven (Forsyth County)", url: "https://familyhavenforsyth.org/" },
+            { label: "Georgia Coalition Against Domestic Violence", url: "https://gcadv.org/" }
+          ]
+        },
+        {
+          id: "elder",
+          keywords: ["elder","senior","aging","grandparent","retirement","caregiver","caregiving"],
+          title: "Senior Services (Forsyth County)",
+          description: "Forsyth County Senior Services offers programs and support for older adults, including activities and resources.",
+          links: [
+            { label: "Forsyth County Senior Services", url: "https://www.forsythco.com/senior-services" },
+            { label: "GA Division of Aging Services", url: "https://aging.georgia.gov/" }
+          ]
+        },
+        {
+          id: "child",
+          keywords: ["child","children","kid","kids","neglect","child abuse","cps","foster"],
+          title: "Child & Family Services (DFCS)",
+          description: "For child protection and family support resources in Forsyth County, GA DFCS can help. If a child is in immediate danger, call 911.",
+          links: [
+            { label: "Forsyth County DFCS location", url: "https://dfcs.georgia.gov/locations/forsyth-county-0" },
+            { label: "Report child abuse/neglect (GA DFCS)", url: "https://dfcs.georgia.gov/services/child-abuse-neglect" }
+          ]
+        },
+        {
+          id: "animals",
+          keywords: ["animal","pet","dog","cat","animal control","lost dog","lost cat","stray"],
+          title: "Animal Services (Forsyth County, GA)",
+          description: "Help for animal control, lost/found pets, adoption, and pet resources in Forsyth County.",
+          links: [
+            { label: "Forsyth County Pet Adoption & Resource Center (PARC)", url: "https://www.forsythsheriff.org/parc" },
+            { label: "Forsyth Sheriff Animal Control", url: "https://www.forsythsheriff.org/animalcontrol" },
+            { label: "Forsyth County Pet Resource Center (county site)", url: "https://www.forsythco.com/Departments-Offices/Pet-Adoption-and-Resource-Center/Adopt" }
+          ]
+        },
+        {
+          id: "utilities",
+          keywords: ["water","electric","utility","heat","power","gas","bills","shutoff","disconnect"],
+          title: "Utility / Energy Bill Assistance",
+          description: "LIHEAP may help eligible households with heating/cooling energy bills. Local community action agencies administer applications.",
+          links: [
+            { label: "Georgia LIHEAP info (DHS/DFCS)", url: "https://dfcs.georgia.gov/services/low-income-home-energy-assistance-program-liheap" },
+            { label: "North Georgia Community Action – Energy Assistance", url: "https://www.ngcainc.com/energy-assistance" },
+            { label: "United Way 2-1-1 (utility help)", url: "https://www.211.org/" }
+          ]
+        },
+        {
+          id: "legal",
+          keywords: ["legal","law","court","tenant","rights","divorce","custody","immigration","eviction notice"],
+          title: "Legal Help (Free/Low-Cost)",
+          description: "Georgia Legal Aid and Georgia Legal Services can help with civil legal issues and point you to local assistance.",
+          links: [
+            { label: "GeorgiaLegalAid.org", url: "https://www.georgialegalaid.org/" },
+            { label: "Georgia Legal Services Program (GLSP)", url: "https://www.glsp.org/" }
+          ]
+        }
+      ];
+
+      const QUICK = [
+        "Housing", "Food", "Mental Health", "Substance Use",
+        "Domestic Violence", "Seniors", "Child Protection",
+        "Animal Services", "Utilities", "Legal Help"
+      ];
+
+      const chat = document.getElementById("chat");
+      const userInput = document.getElementById("userInput");
+      const sendBtn = document.getElementById("sendBtn");
+      const servicesArea = document.getElementById("servicesArea");
+      const quickBtns = document.getElementById("quickBtns");
+
+      function escapeHtml(str){
+        return String(str).replace(/[&<>"']/g, (m) => ({
+          "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+        }[m]));
+      }
+
+      function addMessage(text, who="bot"){
+        const outer = document.createElement("div");
+        outer.className = "msg " + (who === "user" ? "user" : "");
+        const b = document.createElement("div");
+        b.className = "bubble " + (who === "user" ? "user" : "");
+        b.textContent = text;
+        outer.appendChild(b);
+        chat.appendChild(outer);
+        chat.scrollTop = chat.scrollHeight;
+      }
+
+      function safeOpen(url){
+        try{
+          window.open(url, "_blank", "noopener,noreferrer");
+        }catch(e){
+          window.location.href = url;
+        }
+      }
+
+      function showServiceCard(s){
+        const el = document.createElement("div");
+        el.className = "service";
+
+        const title = `<h3>${escapeHtml(s.title)}</h3>`;
+        const desc  = `<p>${escapeHtml(s.description)}</p>`;
+
+        const links = (s.links || []).map(l => {
+          const url = String(l.url || "").trim();
+          const label = escapeHtml(l.label || "Open link");
+          return `<div style="margin-top:6px">
+            <a href="${url}" target="_blank" rel="noopener noreferrer" data-open="${url}">${label} →</a>
+          </div>`;
+        }).join("");
+
+        el.innerHTML = title + desc + links;
+
+        el.querySelectorAll("a[data-open]").forEach(a => {
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            const url = a.getAttribute("data-open");
+            if(url) safeOpen(url);
+          });
+        });
+
+        servicesArea.appendChild(el);
+      }
+
+      function findMatches(text){
+        const t = text.toLowerCase();
+        const matches = new Map();
+
+        for(const s of SERVICES){
+          for(const kw of s.keywords){
+            if(t.includes(kw)){
+              matches.set(s.id, s);
+              break;
+            }
+          }
+        }
+        return Array.from(matches.values());
+      }
+
+      // Greeting detection: respond "Hi!" when user greets in any manner.
+      function isGreeting(text){
+        const t = text.trim().toLowerCase();
+
+        // Common greetings + variations
+        const greetingRegex =
+          /^(hi+|hello+|hey+|hiya+|howdy+|yo+|sup|what'?s up|good (morning|afternoon|evening)|greetings)\b/;
+
+        // Catch messages that are basically just a greeting (with punctuation/emojis)
+        const onlyGreetingRegex =
+          /^(hi+|hello+|hey+|hiya+|howdy+|yo+|sup|what'?s up|good (morning|afternoon|evening)|greetings)[\s!,.?🙂🙃😀😄😁😅🤣😊😉😍🥳🎉]*$/;
+
+        return greetingRegex.test(t) || onlyGreetingRegex.test(t);
+      }
+
+      function handleInput(raw){
+        const txt = raw.trim();
+        if(!txt) return;
+
+        // Always show user's message
+        addMessage(txt, "user");
+        userInput.value = "";
+        servicesArea.innerHTML = "";
+
+        // If user greets, chatbot greets back
+        if(isGreeting(txt)){
+          addMessage("Hi! How can I help you today in Forsyth County, GA? You can say something like “food pantry”, “rent help”, “power bill”, “counseling”, or click a quick button below.");
+          return;
+        }
+
+        const matches = findMatches(txt);
+
+        if(matches.length){
+          addMessage("Here are Forsyth County, GA–relevant resources that may help:");
+          matches.forEach(showServiceCard);
+
+          if(matches.some(m => m.id === "mental")){
+            addMessage("If this is urgent or you feel unsafe, call 911. You can also call or text 988 for 24/7 support.");
+          }
+        } else {
+          addMessage("I couldn’t find an exact match, but these are good starting points for Forsyth County, GA:");
+          showServiceCard({
+            title: "United Way 2-1-1",
+            description: "Search or call for local help with food, housing, utilities, health, and more.",
+            links: [{label:"Open 211.org", url:"https://www.211.org/"}]
+          });
+          showServiceCard({
+            title: "Forsyth County, GA (Official Site)",
+            description: "Find county departments, services, and contact info.",
+            links: [{label:"Open Forsyth County site", url:"https://www.forsythco.com/"}]
+          });
+          addMessage('Try adding a detail like: "rent help", "food pantry", "power bill", "counseling", or "legal aid".');
+        }
+      }
+
+      // Quick buttons
+      for(const q of QUICK){
+        const b = document.createElement("button");
+        b.className = "chip";
+        b.type = "button";
+        b.textContent = q;
+        b.onclick = () => { userInput.value = q; handleInput(q); };
+        quickBtns.appendChild(b);
+      }
+
+      sendBtn.addEventListener("click", () => handleInput(userInput.value));
+      userInput.addEventListener("keydown", (e) => {
+        if(e.key === "Enter") handleInput(userInput.value);
+      });
+
+      // Initial greeting on load
+      addMessage(
+        "Hi! 👋 Welcome to the Forsyth County, GA Help Chatbot. Tell me what you need (food, housing, utility bills, mental health, legal help, pet services, etc.) and I’ll show local resources + links."
+      );
+
+      userInput.focus();
+    </script>
+  </body>
+</html>
