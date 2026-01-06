@@ -3,28 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <title>LHS 2026 WebMaster</title>
-  <link rel="stylesheet" href="../Style/style.css">
+  <link rel="stylesheet" href="../Style/chapter.css">
 </head>
 
 <body>
+  <!-- Black nav bar with logo and buttons -->
+  <nav class="top-navbar">
+    <div class="top-navbar-content">
+      <div class="top-navbar-logos">
+        <img src="../img/LamertLogo.png" alt="Lambert Logo" class="navbar-logo-img">
+        <img src="../img/Tsalogo-Photoroom.png" alt="TSA Logo" class="navbar-logo-img">
+      </div>
+      <div class="top-navbar-links">
+        <a href="#about" class="top-nav-btn">About</a>
+        <a href="#cte" class="top-nav-btn">CTE</a>
+        <a href="../Chatbot/chatbot.html" class="top-nav-btn">Project</a>
+      </div>
+    </div>
+  </nav>
+
   <nav class="navbar">
-        <ul>
-            <li class="navbar-link"><a href="#Contact"><b>Contact</b></a></li>
-            <li class="navbar-link"><a href="#skills"><b>Skills</b></a></li>
-            <li class="navbar-link"><a href="#about"><b>About</b></a></li>
-            <li class="navbar-link"><a href="index.html"><b>Home</b></a></li>
-            <li></li>
-        </ul>
-        
-    </nav>
+    <ul>
+      <li><a href="../Chatbot/chatbot.html"><b>Contact</b></a></li>
+      <li><a href="#skills"><b>Skills</b></a></li>
+      <li><a href="#about"><b>About</b></a></li>
+      <li><a href="index.html"><b>Home</b></a></li>
+    </ul>
+  </nav>
+
   <div class="carousel" id="track">
-    <img src="../img/img1.jpg">
-    <img src="../img/img2.jpg">
-  </div>
-  <div>
+    <img src="../img/img1.jpg" alt="">
+    <img src="../img/img2.jpg" alt="">
 
+    <div class="carousel-overlay">
+      <h1 id="demo"></h1>
+    </div>
   </div>
 
-  <script src="../js/main.js"></script>
+  <div class="tsa-info-section">
+    <h1>What is TSA</h1>
+    <p>Georgia TSA gives middle and high school students the opportunity to develop real world skills through hands-on competition and collaboration. With more than seventy competitive events available, members can pursue pathways that match their interests while still pushing themselves academically. Chapters often spend months designing, testing, and documenting their work, helping students learn how to think like engineers, communicate like professionals, and improve through feedback even when their first attempt is not perfect.</p>
+
+    <p>The experience culminates at the State Leadership Conference, typically held in March at the Classic Center in Athens. Thousands of students gather to present projects, take exams, interview with judges, and connect with other chapters, all while strengthening leadership through teamwork and chapter involvement.</p>
+
+    <p>Georgia TSA offers a wide range of events that allow every type of student to contribute, including:</p>
+
+    <ul>
+    <li>Hands-on engineering challenges such as robotics, flight, and dragster style competitions</li>
+    <li>Technology and coding-based events including website design and digital problem solving</li>
+    <li>Communication-focused events like video production, promotional design, and prepared speaking</li>
+    </ul>
+
+    <p>In addition to the State Leadership Conference, Georgia TSA hosts seasonal opportunities such as Technology Day at the Georgia National Fairgrounds in Perry, where students compete in additional contests, experience a high-energy rally atmosphere, and build confidence by performing under time pressure while learning from other competitors.</p>
+  </div>
+
+  <div class="tsa-highlight-section">
+    <div class="tsa-highlight-section-content">
+      <h1>Who are we</h1>
+      <p>testing</p>
+      <p>This is a highlighted TSA fact or announcement. You can edit this text as needed.</p>
+    </div>
+  </div>
+
+  <script src="../js/chapter.js"></script>
 </body>
 </html>
