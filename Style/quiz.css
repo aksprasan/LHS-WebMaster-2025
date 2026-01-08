@@ -1,0 +1,220 @@
+:root{
+      --ink:#e8eefc;
+      --muted:#a9b6d3;
+      --line:rgba(255,255,255,.10);
+      --accent:#ff4d6d;
+      --accent2:#6ee7ff;
+      --shadow:0 18px 55px rgba(0,0,0,.45);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(110,231,255,.12), transparent 55%),
+        radial-gradient(900px 700px at 85% 25%, rgba(255,77,109,.12), transparent 50%),
+        linear-gradient(180deg,#070b16 0%, #0b1020 40%, #070b16 100%);
+      color:var(--ink);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+      text-align:center;
+    }
+    .wrap{width:100%;max-width:980px;margin:0 auto}
+    .top{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      margin-bottom:14px;
+    }
+    h1{font-size:24px;margin:0;letter-spacing:.2px}
+    .sub{color:var(--muted);font-size:13px;line-height:1.35;margin:0;max-width:860px}
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      width:100%;
+      max-width:860px;
+      margin:0 auto;
+      text-align:left;
+    }
+    .hd{
+      padding:16px 18px;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .bd{padding:18px}
+
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      border:1px solid var(--line);
+      padding:8px 10px;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:12px;
+      background:rgba(255,255,255,.03);
+      white-space:nowrap;
+    }
+
+    .progress{
+      height:10px;
+      background:rgba(255,255,255,.06);
+      border-radius:999px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      width:220px;
+    }
+    .bar{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      border-radius:999px;
+      transition:width .25s ease;
+    }
+
+    .qtitle{
+      font-size:16px;
+      margin:0 0 6px 0;
+      letter-spacing:.2px;
+      text-align:center;
+    }
+    .qhint{
+      margin:0 0 14px 0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.35;
+      text-align:center;
+    }
+
+    .options{
+      display:grid;
+      gap:10px;
+      justify-items:center;
+    }
+    .opt{
+      width:100%;
+      max-width:740px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.03);
+      border-radius:14px;
+      padding:12px 12px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      cursor:pointer;
+      transition:transform .08s ease, border-color .12s ease, background .12s ease;
+      user-select:none;
+      text-align:left;
+    }
+    .opt:hover{
+      border-color:rgba(110,231,255,.35);
+      background:rgba(110,231,255,.06);
+      transform:translateY(-1px);
+    }
+    .opt[aria-checked="true"]{
+      border-color:rgba(255,77,109,.55);
+      background:rgba(255,77,109,.08);
+    }
+    .mark{
+      width:22px;height:22px;flex:0 0 22px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.04);
+      display:flex;align-items:center;justify-content:center;
+      margin-top:2px;
+    }
+    .opt[aria-checked="true"] .mark{
+      border-color:rgba(255,77,109,.65);
+      background:rgba(255,77,109,.18);
+    }
+    .mark svg{opacity:0;transform:scale(.9);transition:opacity .12s ease, transform .12s ease}
+    .opt[aria-checked="true"] .mark svg{opacity:1;transform:scale(1)}
+
+    .otxt{display:flex;flex-direction:column;gap:4px}
+    .olab{font-weight:800;font-size:14px}
+    .odesc{color:var(--muted);font-size:12.5px;line-height:1.35}
+
+    .row{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      margin-top:16px;
+      flex-wrap:wrap;
+    }
+    button{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+      color:var(--ink);
+      padding:10px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:800;
+      letter-spacing:.2px;
+      transition:filter .12s ease, transform .08s ease;
+    }
+    button:hover{filter:brightness(1.05)}
+    button:active{transform:translateY(1px)}
+    .primary{
+      background:linear-gradient(90deg, rgba(255,77,109,.95), rgba(110,231,255,.55));
+      border-color:rgba(255,255,255,.16);
+    }
+    .ghost{background:transparent}
+    .disabled{opacity:.55;pointer-events:none}
+
+    .resultsWrap{
+      width:100%;
+      display:grid;
+      gap:12px;
+      justify-items:center;
+      text-align:center;
+    }
+    .resultsTitle{
+      font-size:20px;
+      font-weight:900;
+      margin:0 0 6px 0;
+      text-align:center;
+    }
+    .results{
+      width:100%;
+      display:grid;
+      gap:10px;
+      justify-items:center;
+      margin-top:6px;
+    }
+    .result{
+      width:100%;
+      max-width:740px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+      padding:12px 12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+      text-align:left;
+    }
+    .rName{font-weight:900;font-size:14px;margin:0}
+    .badge{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      white-space:nowrap;
+      align-self:flex-start;
+    }
+    .badge.great{border-color:rgba(110,231,255,.40);background:rgba(110,231,255,.12);color:#d9fbff}
+    .badge.good{border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.10);color:#bff7df}

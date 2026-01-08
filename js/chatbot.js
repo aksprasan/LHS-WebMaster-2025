@@ -2,7 +2,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing chatbot...');
     
-    const backButton = document.getElementById('backButton');
+    const chapterButton = document.getElementById('chapterButton');
+    const ctaeButton = document.getElementById('ctaeButton');
+    const aboutButton = document.getElementById('aboutButton');
     const chat = document.getElementById("chat");
     const userInput = document.getElementById("userInput");
     const sendBtn = document.getElementById("sendBtn");
@@ -10,7 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const quickBtns = document.getElementById("quickBtns");
 
     console.log('Elements found:', {
-        backButton: !!backButton,
+        chapterButton: !!chapterButton,
+        ctaeButton: !!ctaeButton,
+        aboutButton: !!aboutButton,
         chat: !!chat,
         userInput: !!userInput,
         sendBtn: !!sendBtn,
@@ -18,10 +22,23 @@ document.addEventListener('DOMContentLoaded', function() {
         quickBtns: !!quickBtns
     });
     
-    if (backButton) {
-        backButton.addEventListener('click', function() {
-            // Navigate back to chapter.html
+    // Navigation button event listeners
+    if (chapterButton) {
+        chapterButton.addEventListener('click', function() {
             window.location.href = '../chapter/chapter.html';
+        });
+    }
+    
+    if (ctaeButton) {
+        ctaeButton.addEventListener('click', function() {
+            window.location.href = '../ctae/ctae.html';
+        });
+    }
+    
+    if (aboutButton) {
+        aboutButton.addEventListener('click', function() {
+            // You can create an about page or show an alert for now
+            alert('About page - Coming soon!');
         });
     }
 
@@ -292,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial greeting on load
     if (chat) {
         addMessage(
-            "Hi! 👋 Welcome to the Forsyth County, GA Help Chatbot. Tell me what you need (food, housing, utility bills, mental health, legal help, pet services, etc.) and I'll show local resources + links."
+            "Hi! Welcome to the Forsyth County, GA Help Chatbot. Tell me what you need (food, housing, utility bills, mental health, legal help, pet services, etc.) and I'll show local resources + links."
         );
     }
 

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TSA Event Finder</title>
+  <link rel="stylesheet" href="../Style/quiz.css" />
+</head>
+<body>
+  <div class="wrap" id="wrap">
+    <div class="top" id="top">
+      <h1>TSA Event Finder</h1>
+      <p class="sub" id="subText">Answer a few questions, then click Submit to see your best-fit TSA high school events.</p>
+    </div>
+
+    <div class="card" id="quizCard">
+      <div class="hd" id="quizHeader">
+        <div class="progress" aria-label="Progress"><div class="bar" id="bar"></div></div>
+        <div class="pill" id="stepPill">Step 1 of 6</div>
+        <div class="pill" id="modePill">Pick one</div>
+      </div>
+      <div class="bd">
+        <div id="screenQuiz"></div>
+        <div class="row" id="navRow">
+          <button class="ghost" id="backBtn">Back</button>
+          <button class="ghost" id="resetBtn">Reset</button>
+          <button class="primary" id="nextBtn">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="../js/quiz.js"></script>
+</body>
+</html>
