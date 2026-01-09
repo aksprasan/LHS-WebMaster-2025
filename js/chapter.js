@@ -45,6 +45,24 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('scroll', onScroll);
   onScroll(); // run once on load
 
+  /* ---------- SECTION ANIMATIONS ON SCROLL ---------- */
+  const animatedSections = document.querySelectorAll('.section-animate');
+  
+  function checkSectionAnimations() {
+    animatedSections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      
+      // Trigger animation when section is 20% visible
+      if (rect.top < windowHeight - (windowHeight * 0.2)) {
+        section.classList.add('animate-in');
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', checkSectionAnimations);
+  checkSectionAnimations(); // run once on load
+
   /* ---------- EVENTS TABS ---------- */
   const eventTabs = document.querySelectorAll('.event-tab');
   const eventPanels = document.querySelectorAll('.event-panel');

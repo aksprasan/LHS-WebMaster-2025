@@ -14,6 +14,133 @@ overflow-x: hidden;
 background: #3b0f1a;
 }
 
+/* Top black nav bar styles */
+.top-navbar {
+  width: 100vw;
+  background: #111;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 100;
+  position: relative;
+}
+
+.top-navbar-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.top-navbar-logos {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: 120px;
+}
+
+.top-navbar-logos .navbar-logo-img:first-child {
+  height: 100px;
+  width: auto;
+}
+
+.top-navbar-logos .navbar-logo-img:last-child {
+  height: 80px;
+  width: auto;
+  margin-left: auto;
+  margin-right: 180px;
+}
+
+.navbar-logo-img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.top-navbar-links {
+  display: flex;
+  gap: 18px;
+}
+
+.top-nav-btn {
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 10px 32px;
+  font-size: 1.1rem;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.top-nav-btn:hover {
+  background: #fff;
+  color: #111;
+}
+
+@media (max-width: 700px) {
+  .top-navbar-content {
+    padding: 0 8px;
+  }
+  .top-navbar-logos {
+    margin-left: 10px;
+    gap: 10px;
+  }
+  .top-navbar-logos .navbar-logo-img:first-child {
+    height: 60px;
+  }
+  .top-navbar-logos .navbar-logo-img:last-child {
+    height: 40px;
+    margin-right: 20px;
+  }
+  .navbar-logo-img {
+    height: 40px;
+  }
+  .top-navbar {
+    height: 56px;
+  }
+}
+
+/* Remove space between navbars */
+.navbar {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(159, 49, 49);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 20px 50px;
+  font-size: 22.5px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: block;
+}
+
+.navbar a:hover {
+  background-color: rgb(129, 0, 0);
+}
+
 /* Shared shade for first and third division */
 .shared-bg {
 background: linear-gradient(135deg, #3b0f1a, #701f2b);
@@ -284,6 +411,29 @@ font-size: 1rem;
 </head>
 
 <body>
+
+<!-- Navigation -->
+<nav class="top-navbar">
+  <div class="top-navbar-content">
+    <div class="top-navbar-logos">
+      <img src="../img/LamertLogo.png" alt="Lambert Logo" class="navbar-logo-img">
+      <img src="../img/Tsalogo-Photoroom.png" alt="TSA Logo" class="navbar-logo-img">
+    </div>
+    <div class="top-navbar-links">
+      <a href="#about" class="top-nav-btn">About</a>
+      <a href="../chapter/chapter.html" class="top-nav-btn">Chapter</a>
+      <a href="../Chatbot/chatbot.html" class="top-nav-btn">Project</a>
+    </div>
+  </div>
+</nav>
+<nav class="navbar">
+  <ul>
+    <li><a href="../Chatbot/chatbot.html"><b>Contact</b></a></li>
+    <li><a href="#skills"><b>Skills</b></a></li>
+    <li><a href="#about"><b>About</b></a></li>
+    <li><a href="index.html"><b>Home</b></a></li>
+  </ul>
+</nav>
 
 <!-- Hero -->
 <div id="hero-section" class="shared-bg">
