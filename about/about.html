@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LHS WebMaster 2025 - Project Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* Top navbar styles */
+        .top-navbar {
+            width: 100vw;
+            background: #111;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 100;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .top-navbar-content {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+        }
+
+        .top-navbar-logos {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-left: 120px;
+        }
+
+        .top-navbar-logos .navbar-logo-img:first-child {
+            height: 100px;
+            width: auto;
+        }
+
+        .top-navbar-logos .navbar-logo-img:last-child {
+            height: 80px;
+            width: auto;
+            margin-left: auto;
+            margin-right: 180px;
+        }
+
+        .navbar-logo-img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .top-navbar-links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .top-nav-btn {
+            background: #222;
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            padding: 10px 32px;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.18s, color 0.18s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .top-nav-btn:hover {
+            background: #fff;
+            color: #111;
+        }
+
+        @media (max-width: 700px) {
+            .top-navbar-content {
+                padding: 0 8px;
+            }
+            .top-navbar-logos {
+                margin-left: 10px;
+                gap: 10px;
+            }
+            .top-navbar-logos .navbar-logo-img:first-child {
+                height: 60px;
+            }
+            .top-navbar-logos .navbar-logo-img:last-child {
+                height: 40px;
+                margin-right: 20px;
+            }
+            .navbar-logo-img {
+                height: 40px;
+            }
+            .top-navbar {
+                height: 56px;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2a0a0a 0%, #8b1a1a 50%, #2a0a0a 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #9f3131;
+        }
+
+        .section h2 {
+            color: #9f3131;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #9f3131;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin: 20px 0 10px 0;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tech-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .tech-card h4 {
+            color: #9f3131;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .media-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .media-item strong {
+            color: #9f3131;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: #9f3131;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            background: #2c3e50;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            background: #34495e;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: #9f3131;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .tech-grid,
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-navbar">
+        <div class="top-navbar-content">
+            <div class="top-navbar-logos">
+                <img src="../img/LamertLogo.png" alt="Lambert Logo" class="navbar-logo-img">
+                <img src="../img/Tsalogo-Photoroom.png" alt="TSA Logo" class="navbar-logo-img">
+            </div>
+            <div class="top-navbar-links">
+                <a href="../chapter/chapter.html" class="top-nav-btn">Chapter</a>
+                <a href="../ctae/ctae.html" class="top-nav-btn">CTAE</a>
+                <a href="../Chatbot/chatbot.html" class="top-nav-btn">Project</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="header">
+            <h1>LHS WebMaster 2025</h1>
+            <p>Project Documentation - Frameworks, Media Sources & Research</p>
+        </div>
+
+
+        <div class="section">
+            <h2>Frameworks & Technologies Used</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Frontend Technologies</h4>
+                    <ul class="feature-list">
+                        <li>HTML5 - Semantic markup and structure</li>
+                        <li>CSS3 - Advanced styling with Grid, Flexbox, and animations</li>
+                        <li>Vanilla JavaScript - Interactive functionality and DOM manipulation</li>
+                        <li>CSS Custom Properties (CSS Variables) - Dynamic theming</li>
+                        <li>CSS Animations & Transitions - Smooth user interactions</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h4>Design Patterns</h4>
+                    <ul class="feature-list">
+                        <li>Responsive Web Design - Mobile-first approach</li>
+                        <li>CSS Grid Layout - Complex page layouts</li>
+                        <li>Flexbox - Component alignment and distribution</li>
+                        <li>Progressive Enhancement - Graceful degradation</li>
+                        <li>Modular CSS Architecture - Organized stylesheets</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h4>JavaScript Features</h4>
+                    <ul class="feature-list">
+                        <li>ES6+ Features - Modern JavaScript syntax</li>
+                        <li>Event-Driven Programming - User interaction handling</li>
+                        <li>DOM Manipulation - Dynamic content updates</li>
+                        <li>Local Storage - Data persistence</li>
+                        <li>Async/Await - Asynchronous operations</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h4>External Resources</h4>
+                    <ul class="feature-list">
+                        <li>Google Fonts - Typography enhancement</li>
+                        <li>SVG Icons - Scalable vector graphics</li>
+                        <li>Web APIs - Browser native functionality</li>
+                        <li>CSS Gradients - Visual design elements</li>
+                        <li>Media Queries - Responsive breakpoints</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>Note:</strong> This project uses no external JavaScript frameworks or libraries, demonstrating proficiency in vanilla web technologies and modern CSS capabilities.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Media Sources & Assets</h2>
+            
+            <h3>Logo Assets</h3>
+            <div class="media-grid">
+                <div class="media-item">
+                    <strong>LamertLogo.png</strong>
+                    Lambert High School official logo used in navigation headers
+                </div>
+                <div class="media-item">
+                    <strong>Tsalogo-Photoroom.png</strong>
+                    Technology Student Association logo (background removed)
+                </div>
+            </div>
+
+            <h3>Officer Profile Images</h3>
+            <div class="media-grid">
+                <div class="media-item">
+                    <strong>Officer1.png - Officer8.png</strong>
+                    Professional headshots of TSA chapter officers
+                </div>
+                <div class="media-item">
+                    <strong>Officer10.png</strong>
+                    Additional officer profile image
+                </div>
+                <div class="media-item">
+                    <strong>Screenshot 2026-01-08 at 9.43.13 PM.png</strong>
+                    Officer profile image (Pratyush Verma)
+                </div>
+            </div>
+
+            <h3>Event & Conference Images</h3>
+            <div class="media-grid">
+                <div class="media-item">
+                    <strong>CoreImage1.png, CoreImage2.png</strong>
+                    CORE Leadership Conference documentation images
+                </div>
+                <div class="media-item">
+                    <strong>FLCImage1.png, FLCImage2.png</strong>
+                    Fall Leadership Conference event photos
+                </div>
+                <div class="media-item">
+                    <strong>SLCImage1.png, SLCImage2.png, SLCImage3.png</strong>
+                    State Leadership Conference competition and ceremony images
+                </div>
+                <div class="media-item">
+                    <strong>TechDayImage1.png, TechDayImage2.png</strong>
+                    Technology Day hands-on workshop photos
+                </div>
+            </div>
+
+            <h3>Background & Hero Images</h3>
+            <div class="media-grid">
+                <div class="media-item">
+                    <strong>img1.jpg, img2.jpg</strong>
+                    Carousel background images for chapter homepage
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>Image Usage:</strong> All images are optimized for web use and implement proper alt text for accessibility compliance. Images are used under educational fair use guidelines for this TSA competition project.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Research Sources & Content</h2>
+            
+            <h3>TSA Organization Information</h3>
+            <div class="tech-card">
+                <h4>Primary Sources</h4>
+                <ul class="feature-list">
+                    <li>Georgia TSA Official Website - Event descriptions and guidelines</li>
+                    <li>National TSA Organization - Competition rules and standards</li>
+                    <li>Lambert High School - Chapter formation and officer information</li>
+                    <li>Forsyth County Schools - Educational context and support</li>
+                </ul>
+            </div>
+
+            <h3>CTAE Pathway Information</h3>
+            <div class="tech-card">
+                <h4>Educational Resources</h4>
+                <ul class="feature-list">
+                    <li>Georgia Department of Education - CTAE curriculum standards</li>
+                    <li>Forsyth County Schools CTAE Department - Course descriptions</li>
+                    <li>Career pathway documentation - Industry alignment information</li>
+                    <li>Teacher assignment data - Faculty expertise areas</li>
+                </ul>
+            </div>
+
+            <h3>Community Resource Database</h3>
+            <div class="tech-card">
+                <h4>Chatbot Resource Links</h4>
+                <ul class="feature-list">
+                    <li>United Way 2-1-1 - Community resource directory</li>
+                    <li>Forsyth County Government - Official county services</li>
+                    <li>Georgia Department of Human Services - State assistance programs</li>
+                    <li>Local nonprofit organizations - Community support services</li>
+                    <li>Crisis support hotlines - Mental health and emergency resources</li>
+                </ul>
+            </div>
+
+            <div class="highlight">
+                <strong>Research Methodology:</strong> All information was gathered from official sources and verified for accuracy. Community resources were cross-referenced with multiple databases to ensure current contact information and service availability.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Project Architecture</h2>
+            
+            <h3>File Structure</h3>
+            <div class="code-block">
+LHS-WebMaster-2025/
+├── chapter/
+│   └── chapter.html          # Main TSA chapter information page
+├── ctae/
+│   └── ctae.html            # Career & Technical Education pathways
+├── Chatbot/
+│   └── chatbot.html         # Community resource chatbot
+├── Interactive/
+│   └── quiz.html            # TSA event recommendation quiz
+├── Style/
+│   ├── chapter.css          # Chapter page styling
+│   ├── chatbot.css          # Chatbot interface styling
+│   └── quiz.css             # Quiz application styling
+├── js/
+│   ├── chapter.js           # Chapter page interactions
+│   ├── chatbot.js           # Chatbot logic and navigation
+│   └── quiz.js              # Quiz functionality and scoring
+├── img/                     # Media assets directory
+└── documentation.html       # This documentation file
+            </div>
+
+            <h3>Key Features Implemented</h3>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Chapter Page Features</h4>
+                    <ul class="feature-list">
+                        <li>Animated carousel with typewriter effect</li>
+                        <li>Officer profile carousel with navigation</li>
+                        <li>Tabbed event information system</li>
+                        <li>Expandable activity showcase cards</li>
+                        <li>Scroll-triggered animations</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h4>CTAE Page Features</h4>
+                    <ul class="feature-list">
+                        <li>Interactive pathway selection buttons</li>
+                        <li>Expandable course information cards</li>
+                        <li>Teacher carousel with auto-rotation</li>
+                        <li>Responsive grid layouts</li>
+                        <li>Typing animation effects</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h4>Chatbot Features</h4>
+                    <ul class="feature-list">
+                        <li>Natural language processing for keywords</li>
+                        <li>Dynamic resource matching system</li>
+                        <li>Quick action buttons for common needs</li>
+                        <li>Greeting detection and responses</li>
+                        <li>External link safety handling</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h4>Quiz Features</h4>
+                    <ul class="feature-list">
+                        <li>Multi-step questionnaire system</li>
+                        <li>Weighted scoring algorithm</li>
+                        <li>Progress tracking and validation</li>
+                        <li>Personalized event recommendations</li>
+                        <li>Accessibility-compliant interface</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Accessibility & Standards</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>WCAG 2.1 Compliance</h4>
+                    <ul class="feature-list">
+                        <li>Semantic HTML structure</li>
+                        <li>Proper heading hierarchy</li>
+                        <li>Alt text for all images</li>
+                        <li>Keyboard navigation support</li>
+                        <li>Color contrast compliance</li>
+                        <li>Screen reader compatibility</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h4>Performance Optimization</h4>
+                    <ul class="feature-list">
+                        <li>Optimized image formats and sizes</li>
+                        <li>Efficient CSS animations</li>
+                        <li>Minimal JavaScript footprint</li>
+                        <li>Progressive loading techniques</li>
+                        <li>Mobile-first responsive design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Project Goals & Outcomes</h2>
+            
+            <div class="highlight">
+                <strong>Primary Objective:</strong> Create a comprehensive web presence for Lambert High School's TSA chapter that serves multiple stakeholder needs while demonstrating advanced web development skills for TSA WebMaster competition.
+            </div>
+
+            <h3>Target Audiences</h3>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Students</h4>
+                    <p>Prospective and current TSA members seeking information about events, officers, and participation opportunities.</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Educators</h4>
+                    <p>Teachers and counselors exploring CTAE pathways and career preparation programs.</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Community</h4>
+                    <p>Forsyth County residents needing access to local resources and support services.</p>
+                </div>
+                <div class="tech-card">
+                    <h4>Judges</h4>
+                    <p>TSA competition evaluators assessing technical implementation and design quality.</p>
+                </div>
+            </div>
+
+            <h3>Technical Achievements</h3>
+            <ul class="feature-list">
+                <li>Responsive design supporting all device sizes</li>
+                <li>Advanced CSS animations and transitions</li>
+                <li>Interactive JavaScript applications</li>
+                <li>Accessibility compliance and semantic markup</li>
+                <li>Performance optimization and clean code architecture</li>
+                <li>Integration of multiple content types and data sources</li>
+            </ul>
+        </div>
+
+        <div class="nav-links">
+            <a href="#top">Back to Top</a>
+        </div>
+    </div>
+</body>
+</html>

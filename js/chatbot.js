@@ -37,8 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (aboutButton) {
         aboutButton.addEventListener('click', function() {
-            // You can create an about page or show an alert for now
-            alert('About page - Coming soon!');
+            window.location.href = '../about/about.html';
         });
     }
 
