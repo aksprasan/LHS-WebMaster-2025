@@ -1,5 +1,47 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* ---------- STICKY NAVBAR ---------- */
+  const navbar = document.querySelector('.navbar');
+  const topNavbar = document.querySelector('.top-navbar');
+  
+  function handleNavbarSticky() {
+    const topNavbarHeight = topNavbar ? topNavbar.offsetHeight : 0;
+    const scrollPosition = window.scrollY;
+    
+    if (scrollPosition > topNavbarHeight) {
+      navbar.classList.add('sticky');
+    } else {
+      navbar.classList.remove('sticky');
+    }
+  }
+  
+  window.addEventListener('scroll', handleNavbarSticky);
+  handleNavbarSticky(); // run once on load
+
+  /* ---------- NAVBAR LINK SCROLL TO TOP OF SECTIONS ---------- */
+  const navLinks = document.querySelectorAll('.navbar a');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        // Special handling for Introduction - scroll to bottom of carousel
+        if (targetId === 'about') {
+          const carousel = document.querySelector('.carousel');
+          if (carousel) {
+            carousel.scrollIntoView({ behavior: 'smooth', block: 'end' });
+          }
+        } else {
+          // Scroll to the very top of the section (where it meets the previous division)
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+
   /* ---------- CAROUSEL ---------- */
   const track = document.getElementById("track");
   const slides = track.querySelectorAll("img");
@@ -31,14 +73,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- TSA INFO ANIMATE ON SCROLL ---------- */
   const tsaSection = document.getElementById('tsaInfoSection');
+  const tsaWhoSection = document.getElementById('tsaWhoSection');
 
   function onScroll() {
-    const rect = tsaSection.getBoundingClientRect();
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-    if (rect.top < windowHeight - 100) {
-      tsaSection.classList.add('animate-up-active');
-    } else {
-      tsaSection.classList.remove('animate-up-active');
+    if (tsaWhoSection) {
+      const rectWho = tsaWhoSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rectWho.top < windowHeight - 100) {
+        tsaWhoSection.classList.add('animate-up-active');
+      } else {
+        tsaWhoSection.classList.remove('animate-up-active');
+      }
+    }
+
+    if (tsaSection) {
+      const rect = tsaSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 100) {
+        tsaSection.classList.add('animate-up-active');
+      } else {
+        tsaSection.classList.remove('animate-up-active');
+      }
     }
   }
 
