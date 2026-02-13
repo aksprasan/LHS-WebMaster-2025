@@ -19,104 +19,122 @@
             min-height: 100vh;
         }
 
-        /* Top navbar styles */
-        .top-navbar {
-            width: 100vw;
-            background: #111;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            z-index: 100;
-            position: relative;
-            margin-bottom: 20px;
-        }
+                /* Top navbar styles (chapter match) */
+                .top-navbar {
+                    width: 100vw;
+                    background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+                    height: 100px;
+                    display: flex;
+                    align-items: center;
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 30px rgba(180, 40, 40, 0.3);
+                    z-index: 100;
+                    position: relative;
+                    border-bottom: 2px solid rgba(180, 40, 40, 0.6);
+                    animation: slideDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+                    backdrop-filter: blur(10px);
+                }
 
-        .top-navbar-content {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 32px;
-        }
+                @keyframes slideDown {
+                    from {
+                        opacity: 0;
+                        transform: translateY(-50px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
 
-        .top-navbar-logos {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            margin-left: 120px;
-        }
+                .top-navbar-content {
+                    width: 100%;
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0 32px;
+                }
 
-        .top-navbar-logos .navbar-logo-img:first-child {
-            height: 100px;
-            width: auto;
-        }
+                .top-navbar-logos {
+                    display: flex;
+                    align-items: center;
+                    gap: 24px;
+                    margin-left: 120px;
+                }
 
-        .top-navbar-logos .navbar-logo-img:last-child {
-            height: 80px;
-            width: auto;
-            margin-left: auto;
-            margin-right: 180px;
-        }
+                .top-navbar-logos .navbar-logo-img:first-child {
+                    height: 100px;
+                    width: auto;
+                }
 
-        .navbar-logo-img {
-            height: 80px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-        }
+                .top-navbar-logos .navbar-logo-img:last-child {
+                    height: 80px;
+                    width: auto;
+                    margin-left: auto;
+                    margin-right: 180px;
+                }
 
-        .top-navbar-links {
-            display: flex;
-            gap: 18px;
-        }
+                .navbar-logo-img {
+                    height: 80px;
+                    width: auto;
+                    object-fit: contain;
+                    display: block;
+                }
 
-        .top-nav-btn {
-            background: #222;
-            color: #fff;
-            border: none;
-            border-radius: 7px;
-            padding: 10px 32px;
-            font-size: 1.1rem;
-            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background 0.18s, color 0.18s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-            letter-spacing: 1px;
-            cursor: pointer;
-            display: inline-block;
-        }
+                .top-navbar-links {
+                    display: flex;
+                    gap: 18px;
+                }
 
-        .top-nav-btn:hover {
-            background: #fff;
-            color: #111;
-        }
+                .top-nav-btn {
+                    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+                    color: #fff;
+                    border: 2px solid rgba(180, 40, 40, 0.6);
+                    border-radius: 7px;
+                    padding: 10px 32px;
+                    font-size: 1.1rem;
+                    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+                    font-weight: 600;
+                    text-decoration: none;
+                    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 20px rgba(180, 40, 40, 0.15);
+                    letter-spacing: 1px;
+                    cursor: pointer;
+                    display: inline-block;
+                    position: relative;
+                    overflow: hidden;
+                }
 
-        @media (max-width: 700px) {
-            .top-navbar-content {
-                padding: 0 8px;
-            }
-            .top-navbar-logos {
-                margin-left: 10px;
-                gap: 10px;
-            }
-            .top-navbar-logos .navbar-logo-img:first-child {
-                height: 60px;
-            }
-            .top-navbar-logos .navbar-logo-img:last-child {
-                height: 40px;
-                margin-right: 20px;
-            }
-            .navbar-logo-img {
-                height: 40px;
-            }
-            .top-navbar {
-                height: 56px;
-            }
-        }
+                .top-nav-btn:hover {
+                    background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+                    color: #111;
+                    border-color: #b42828;
+                    transform: translateY(-4px) scale(1.05);
+                    box-shadow: 0 12px 30px rgba(180, 40, 40, 0.6), 0 0 30px rgba(180, 40, 40, 0.4);
+                }
+
+                @media (max-width: 700px) {
+                    .top-navbar-content {
+                        padding: 0 8px;
+                    }
+                    .top-navbar-logos {
+                        margin-left: 10px;
+                        gap: 10px;
+                    }
+                    .top-navbar-logos .navbar-logo-img:first-child {
+                        height: 60px;
+                    }
+                    .top-navbar-logos .navbar-logo-img:last-child {
+                        height: 40px;
+                        margin-right: 20px;
+                    }
+                    .navbar-logo-img {
+                        height: 40px;
+                    }
+                    .top-navbar {
+                        height: 56px;
+                    }
+                }
 
         .container {
             max-width: 1200px;
@@ -142,7 +160,9 @@
 
         .header p {
             font-size: 1.1rem;
-            opacity: 0.9;
+            opacity: 0.95;
+            margin-top: 8px;
+            font-weight: 600;
         }
 
         .section {
@@ -162,6 +182,88 @@
             padding-bottom: 10px;
         }
 
+                /* Secondary navbar styles (chapter match) */
+                .navbar {
+                    margin-top: 0;
+                    background: linear-gradient(90deg, rgb(180, 40, 40) 0%, rgb(200, 60, 60) 50%, rgb(180, 40, 40) 100%);
+                    background-size: 200% 100%;
+                    animation: navGradient 4s ease infinite;
+                    box-shadow: 0 4px 20px rgba(180, 40, 40, 0.5), 0 0 30px rgba(180, 40, 40, 0.3);
+                    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+                    position: relative;
+                    z-index: 99;
+                    transition: all 0.3s ease;
+                    height: auto;
+                }
+
+                @keyframes navGradient {
+                    0%, 100% { background-position: 0% center; }
+                    50% { background-position: 100% center; }
+                }
+
+                .navbar ul {
+                    list-style: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .navbar a {
+                    color: white;
+                    text-decoration: none;
+                    padding: 20px 50px;
+                    font-size: 22.5px;
+                    font-family: Georgia, 'Times New Roman', Times, serif;
+                    display: block;
+                    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+                    position: relative;
+                    font-weight: 600;
+                    letter-spacing: 0.5px;
+                }
+
+                .navbar a:hover {
+                    background-color: rgba(180, 40, 40, 0.6);
+                    transform: translateY(-4px);
+                    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+                }
+
+                /* Sticky variant matching chapter behavior */
+                .navbar.sticky {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    z-index: 99;
+                    animation: navbarShrink 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+                    height: 48px;
+                }
+
+                @keyframes navbarShrink {
+                    from {
+                        height: 80px;
+                    }
+                    to {
+                        height: 48px;
+                    }
+                }
+
+                .navbar.sticky a {
+                    animation: navbarTextShrink 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+                    padding: 14px 40px;
+                }
+
+                @keyframes navbarTextShrink {
+                    from {
+                        font-size: 22.5px;
+                        padding: 20px 50px;
+                    }
+                    to {
+                        font-size: 16px;
+                        padding: 14px 40px;
+                    }
+                }
+
         .section h3 {
             color: #2c3e50;
             font-size: 1.3rem;
@@ -180,6 +282,78 @@
             padding: 20px;
             border-radius: 8px;
             border: 1px solid #e9ecef;
+        }
+
+        /* Team section styles */
+        .team-section {
+            background: white;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #9f3131;
+        }
+
+        .team-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 16px;
+            flex-wrap: nowrap; /* keep all images on one line */
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+
+        .member-card {
+            flex: 1 1 calc(33.333% - 13.3px);
+            max-width: calc(33.333% - 13.3px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+        }
+
+        .member-card img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        /* show top of first member image (Officer 7) while keeping alignment */
+        .team-grid .member-card:first-child img {
+            object-position: top center;
+        }
+
+        /* offset variant to lower a specific image */
+        .member-card.offset-down img {
+            /* show the top portion of the image instead of centering/cropping */
+            transform: none;
+            object-position: top center;
+            margin-top: 12px; /* small visual drop without hiding the top */
+        }
+
+        .member-name {
+            background: #f8f9fa;
+            padding: 10px 14px;
+            border-radius: 8px;
+            width: 100%;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+
+        .member-name h1 {
+            font-size: 1.05rem;
+            margin: 0;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        @media (max-width: 900px) {
+            .member-card { flex: 1 1 100%; max-width: 100%; }
+            .member-card img { width: 180px; height: 180px; }
         }
 
         .tech-card h4 {
@@ -301,16 +475,80 @@
             </div>
         </div>
     </nav>
-    
-    <div class="container">
-        <div class="header">
-            <h1>LHS WebMaster 2025</h1>
-            <p>Project Documentation - Frameworks, Media Sources & Research</p>
+
+    <!-- Secondary navigation for About page (chapter-style) -->
+    <nav class="navbar" aria-label="About page navigation">
+        <ul>
+            <li><a href="#frameworks">Frameworks</a></li>
+            <li><a href="#media-sources">Media</a></li>
+            <li><a href="#project-architecture">Architecture</a></li>
+            <li><a href="#copyright-checklist">Copyright</a></li>
+            <li><a href="#work-log">Work Log</a></li>
+            <li><a href="#team-members">Team</a></li>
+        </ul>
+    </nav>
+        <div class="container">
+                <div class="header">
+                        <h1>LHS WebMaster 2025</h1>
+                        <p>Project Documentation - Frameworks, Media Sources & Research</p>
+                </div>
+
+                <div class="section">
+                    <h2 id="frameworks">Frameworks & Technologies Used</h2>
+            
+                    <div class="tech-grid">
+                                <div class="tech-card">
+                                        <h4>Frontend Technologies</h4>
+                                        <ul class="feature-list">
+                                                <li>HTML5 - Semantic markup and structure</li>
+                                                <li>CSS3 - Advanced styling with Grid, Flexbox, and animations</li>
+                                                <li>Vanilla JavaScript - Interactive functionality and DOM manipulation</li>
+                                                <li>CSS Custom Properties (CSS Variables) - Dynamic theming</li>
+                                                <li>CSS Animations & Transitions - Smooth user interactions</li>
+                                        </ul>
+                                </div>
+
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', () => {
+                                        const navbar = document.querySelector('.navbar');
+                                        const topNavbar = document.querySelector('.top-navbar');
+
+                                        function handleNavbarSticky() {
+                                            if (!navbar) return;
+                                            const topNavbarHeight = topNavbar ? topNavbar.offsetHeight : 0;
+                                            const scrollPosition = window.scrollY;
+
+                                            if (scrollPosition > topNavbarHeight) {
+                                                navbar.classList.add('sticky');
+                                            } else {
+                                                navbar.classList.remove('sticky');
+                                            }
+                                        }
+
+                                        window.addEventListener('scroll', handleNavbarSticky);
+                                        handleNavbarSticky();
+
+                                        // Smooth scroll for navbar links
+                                        const navLinks = document.querySelectorAll('.navbar a');
+                                        navLinks.forEach(link => {
+                                            link.addEventListener('click', (e) => {
+                                                const href = link.getAttribute('href');
+                                                if (!href || href.charAt(0) !== '#') return;
+                                                e.preventDefault();
+                                                const targetId = href.substring(1);
+                                                const targetElement = document.getElementById(targetId);
+                                                if (targetElement) {
+                                                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                                }
+                                            });
+                                        });
+                                    });
+                                </script>
         </div>
 
 
         <div class="section">
-            <h2>Frameworks & Technologies Used</h2>
+            <h2 id="frameworks">Frameworks & Technologies Used</h2>
             
             <div class="tech-grid">
                 <div class="tech-card">
@@ -364,7 +602,7 @@
         </div>
 
         <div class="section">
-            <h2>Media Sources & Assets</h2>
+            <h2 id="media-sources">Media Sources & Assets</h2>
             
             <h3>Logo Assets</h3>
             <div class="media-grid">
@@ -470,7 +708,7 @@
         </div>
 
         <div class="section">
-            <h2>Project Architecture</h2>
+            <h2 id="project-architecture">Project Architecture</h2>
             
             <h3>File Structure</h3>
             <div class="code-block">
@@ -479,9 +717,9 @@ LHS-WebMaster-2025/
 │   └── chapter.html          # Main TSA chapter information page
 ├── ctae/
 │   └── ctae.html            # Career & Technical Education pathways
-├── Chatbot/
+├── Project/
 │   └── chatbot.html         # Community resource chatbot
-├── Interactive/
+├── chapter/
 │   └── quiz.html            # TSA event recommendation quiz
 ├── Style/
 │   ├── chapter.css          # Chapter page styling
@@ -780,7 +1018,7 @@ LHS-WebMaster-2025/
         </div>
 
         <div class="section">
-            <h2>Copyright Checklist</h2>
+            <h2 id="copyright-checklist">Copyright Checklist</h2>
             
             <div class="tech-card">
                 <h4>Media Assets Compliance</h4>
@@ -829,7 +1067,7 @@ LHS-WebMaster-2025/
         </div>
 
         <div class="section">
-            <h2>Work Log</h2>
+            <h2 id="work-log">Work Log</h2>
             
             <div class="tech-card">
                 <h4>Project Planning & Setup</h4>
@@ -917,6 +1155,26 @@ LHS-WebMaster-2025/
             <div class="highlight">
                 <strong>Project Status:</strong> Complete and ready for TSA competition submission. All pages functional, responsive design verified, documentation comprehensive, and copyright compliance ensured.
             </div>
+        
+        <div class="section team-section">
+            <h2 id="team-members">Team Members</h2>
+            <div class="team-grid">
+                <div class="member-card">
+                    <img src="../assets/img/Officer7.png" alt="Akshat Prasanna">
+                    <div class="member-name"><h1>Akshat Prasanna</h1></div>
+                </div>
+
+                <div class="member-card">
+                    <img src="../assets/img/SrujanK.jpeg" alt="Srujan Kallem">
+                    <div class="member-name"><h1>Srujan Kallem</h1></div>
+                </div>
+
+                <div class="member-card">
+                    <img src="../assets/img/TharunD.jpeg" alt="Tharun Dhamotharakannan">
+                    <div class="member-name"><h1>Tharun Dhamotharakannan</h1></div>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
 </body>

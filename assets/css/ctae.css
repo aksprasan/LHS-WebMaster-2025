@@ -18,7 +18,7 @@ html, body {
   background: linear-gradient(135deg, #f0eded 0%, #e8e3e3 100%);
 }
 
-/* Top black nav bar styles */
+/* Top black nav bar styles (copied from chapter.css for consistent look) */
 .top-navbar {
   width: 100vw;
   background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
@@ -103,6 +103,7 @@ html, body {
   position: relative;
   overflow: hidden;
 }
+
 
 .top-nav-btn:hover {
   background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
@@ -222,11 +223,11 @@ html, body {
 .carousel-overlay h1 {
   color: #fff;
   font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-  font-size: 5.5rem;
-  font-weight: 800;
-  letter-spacing: 2.5px;
+  font-size: 3.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
   margin: 0;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 40px rgba(180, 40, 40, 0.6), 0 0 80px rgba(180, 40, 40, 0.3);
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.6), 0 0 30px rgba(180, 40, 40, 0.5);
   animation: textGlow 2.5s ease-in-out infinite;
 }
 
@@ -409,6 +410,18 @@ html, body {
   flex: 1 1 0;
   white-space: nowrap;
   min-width: 0;
+}
+
+/* Slightly reduce font for longer tab labels to improve fit and center Business tab */
+.event-tab[data-tab="business"] {
+  font-size: 0.9rem;
+  margin-left: auto;
+  margin-right: auto;
+  flex: 0 0 auto;
+}
+
+.event-tab[data-tab="av"] {
+  font-size: 0.95rem;
 }
 
 .event-tab::before {
