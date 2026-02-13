@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         currentProjectSlide = 1; // Jump back to real Project 1
         showProjectSlide(currentProjectSlide, true);
-      }, 500); // Wait for transition to complete
+      }, 450); // Slightly less than transition time to avoid lag
     }
   }
 
@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         currentProjectSlide = 5; // Jump to real Project 5
         showProjectSlide(currentProjectSlide, true);
-      }, 500); // Wait for transition to complete
+      }, 450); // Slightly less than transition time to avoid lag
     }
   }
 
