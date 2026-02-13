@@ -23,11 +23,15 @@
     </div>
   </nav>
 
-  <nav class="navbar">
-    <ul>
-      <li><a href="#pathways"><b>Pathways</b></a></li>
-    </ul>
-  </nav>
+  <!-- Hero Carousel Section -->
+  <div class="carousel" id="track">
+    <img src="../img/img1.jpg" alt="">
+    <img src="../img/img2.jpg" alt="">
+
+    <div class="carousel-overlay">
+      <h1 id="demo"></h1>
+    </div>
+  </div>
 
   <div class="events-section" id="pathways">
     <div class="events-section-content">
@@ -49,13 +53,36 @@
           <p>The Computer Science pathway prepares students for careers in software development, IT, and technology innovation. Students learn programming fundamentals, cloud computing, and advanced software design principles. Through hands-on projects and real-world applications, students develop problem-solving skills and technical expertise needed for the modern tech industry.</p>
           
           <h3>Courses</h3>
-          <p><strong>Introduction to Software and Technology</strong> - Foundational CTAE course introducing digital technologies including software, hardware, and emerging tools. Students learn programming basics, computational thinking, and problem-solving strategies with hands-on experience in spreadsheets, word processing, and collaborative tools.</p>
           
-          <p><strong>AP Computer Science Principles</strong> - Introduces fundamental computing concepts including algorithms, data, programming, and cybersecurity. Students explore computing's impact on society, business, and everyday life through hands-on projects emphasizing computational thinking, creativity, and collaboration.</p>
+          <div class="course-card">
+            <h4>Introduction to Software and Technology</h4>
+            <p>This foundational CTAE course introduces students to a wide variety of digital technologies, including software, hardware, and emerging tools used in technology careers. Students learn programming basics, computational thinking, and problem-solving strategies. They gain hands-on experience with spreadsheets, word processing, and collaborative tools. By the end of the course, students are equipped with essential skills to pursue advanced computing and IT courses.</p>
+          </div>
           
-          <p><strong>AP Computer Science A</strong> - Focuses on object-oriented programming in Java. Students design and implement complex programs while learning data structures, algorithms, and debugging strategies. Emphasizes efficiency, problem solving, and code quality for college-level CS and software development careers.</p>
+          <div class="course-card">
+            <h4>AP Computer Science Principles</h4>
+            <p>AP Computer Science Principles introduces students to fundamental computing concepts, including algorithms, data, programming, and cybersecurity. Students explore how computing impacts society, business, and everyday life. Hands-on projects emphasize computational thinking, creativity, and collaboration. This course prepares students for future computer science studies and technology-driven careers.</p>
+          </div>
           
-          <p><strong>Cloud Computing</strong> - Introduces cloud architecture, service models, and deployment strategies. Students learn storage solutions, virtualization, and collaborative tools. Practical exercises highlight security, scalability, and data management for IT careers in modern cloud-based systems.</p>
+          <div class="course-card">
+            <h4>AP Computer Science A</h4>
+            <p>AP Computer Science A focuses on object-oriented programming in Java. Students design and implement complex programs while learning data structures, algorithms, and debugging strategies. The course emphasizes efficiency, problem solving, and code quality. Students gain a solid foundation for college-level CS and software development careers.</p>
+          </div>
+          
+          <div class="course-card">
+            <h4>Cloud Computing</h4>
+            <p>Cloud Computing introduces students to cloud architecture, service models, and deployment strategies. Students learn about storage solutions, virtualization, and collaborative tools. Practical exercises highlight security, scalability, and data management. This course prepares students for IT careers in modern cloud-based systems.</p>
+          </div>
+          
+          <div class="teachers-section">
+            <h3>Teachers</h3>
+            <ul class="teachers-list">
+              <li>Mr. Smith - Introduction to Software and Technology</li>
+              <li>Ms. Johnson - AP Computer Science Principles</li>
+              <li>Dr. Williams - AP Computer Science A</li>
+              <li>Mr. Davis - Cloud Computing</li>
+            </ul>
+          </div>
         </div>
         
         <div class="event-panel" id="business">
@@ -64,13 +91,36 @@
           <p>The Business & Management pathway equips students with essential business skills including financial literacy, accounting, and strategic management. Students learn to analyze markets, manage finances, and lead organizations. This pathway prepares students for careers in business administration, finance, and entrepreneurship.</p>
           
           <h3>Courses</h3>
-          <p><strong>Introduction to Business & Technology</strong> - Overview of essential business concepts and technology applications in professional settings. Students learn workplace communication, teamwork, and project management skills with hands-on exercises reinforcing technology use in business operations.</p>
           
-          <p><strong>Financial Literacy</strong> - Teaches students how to manage money effectively including budgeting, saving, and responsible spending. Students explore credit, investments, and long-term financial planning with real-world examples developing decision-making and problem-solving skills.</p>
+          <div class="course-card">
+            <h4>Introduction to Business & Technology</h4>
+            <p>Overview of essential business concepts and technology applications in professional settings. Students learn workplace communication, teamwork, and project management skills with hands-on exercises reinforcing technology use in business operations.</p>
+          </div>
           
-          <p><strong>Banking, Investments, and Insurance</strong> - Explores banking operations, investments, and insurance principles. Students analyze financial products, manage risk, and make informed decisions through case studies highlighting real-world financial applications.</p>
+          <div class="course-card">
+            <h4>Financial Literacy</h4>
+            <p>Teaches students how to manage money effectively including budgeting, saving, and responsible spending. Students explore credit, investments, and long-term financial planning with real-world examples developing decision-making and problem-solving skills.</p>
+          </div>
           
-          <p><strong>Principles of Accounting I</strong> - Teaches students to maintain accurate financial records for businesses. Students prepare balance sheets, income statements, and ledgers while learning ethical accounting practices with emphasis on analysis and critical thinking.</p>
+          <div class="course-card">
+            <h4>Banking, Investments, and Insurance</h4>
+            <p>Explores banking operations, investments, and insurance principles. Students analyze financial products, manage risk, and make informed decisions through case studies highlighting real-world financial applications.</p>
+          </div>
+          
+          <div class="course-card">
+            <h4>Principles of Accounting I</h4>
+            <p>Teaches students to maintain accurate financial records for businesses. Students prepare balance sheets, income statements, and ledgers while learning ethical accounting practices with emphasis on analysis and critical thinking.</p>
+          </div>
+          
+          <div class="teachers-section">
+            <h3>Teachers</h3>
+            <ul class="teachers-list">
+              <li>Ms. Anderson - Introduction to Business & Technology</li>
+              <li>Mr. Thompson - Financial Literacy</li>
+              <li>Ms. Martinez - Banking, Investments, and Insurance</li>
+              <li>Mr. Brown - Principles of Accounting I</li>
+            </ul>
+          </div>
         </div>
         
         <div class="event-panel" id="health">
@@ -79,17 +129,48 @@
           <p>The Health Care pathway introduces students to diverse healthcare careers and medical sciences. Students learn patient care, medical terminology, biotechnology, and wellness principles. This pathway prepares students for careers in nursing, allied health, biotechnology, and healthcare administration.</p>
           
           <h3>Courses</h3>
-          <p><strong>Introduction to Health Care (IHC)</strong> - Exposes students to a wide range of healthcare careers and foundational medical concepts. Students learn medical terminology, patient care, and safety protocols with emphasis on teamwork, professionalism, and healthcare ethics.</p>
           
-          <p><strong>Essentials to Biotechnology</strong> - Introduces core biological concepts and laboratory techniques used in healthcare and biotech. Topics include cellular biology, genetics, molecular methods, and lab safety. Students conduct experiments, document results, and analyze data.</p>
+          <div class="course-card">
+            <h4>Introduction to Health Care (IHC)</h4>
+            <p>Exposes students to a wide range of healthcare careers and foundational medical concepts. Students learn medical terminology, patient care, and safety protocols with emphasis on teamwork, professionalism, and healthcare ethics.</p>
+          </div>
           
-          <p><strong>Essentials to Healthcare</strong> - Focuses on wellness, nutrition, anatomy, and physiology. Students explore preventive healthcare, patient care basics, and health literacy with hands-on exercises reinforcing practical knowledge and ethical considerations.</p>
+          <div class="course-card">
+            <h4>Essentials to Biotechnology</h4>
+            <p>Introduces core biological concepts and laboratory techniques used in healthcare and biotech. Topics include cellular biology, genetics, molecular methods, and lab safety. Students conduct experiments, document results, and analyze data.</p>
+          </div>
           
-          <p><strong>Biotechnology</strong> - Deepens understanding of molecular biology, genetics, and laboratory techniques. Students perform experiments, analyze results, and solve real-world problems including DNA/RNA technologies, genetic engineering, and bioinformatics.</p>
+          <div class="course-card">
+            <h4>Essentials to Healthcare</h4>
+            <p>Focuses on wellness, nutrition, anatomy, and physiology. Students explore preventive healthcare, patient care basics, and health literacy with hands-on exercises reinforcing practical knowledge and ethical considerations.</p>
+          </div>
           
-          <p><strong>Phlebotomy</strong> - Teaches safe blood collection and preparation for certification. Students learn anatomy, venipuncture, infection control, and patient communication with hands-on practice developing clinical skills and attention to detail.</p>
+          <div class="course-card">
+            <h4>Biotechnology</h4>
+            <p>Deepens understanding of molecular biology, genetics, and laboratory techniques. Students perform experiments, analyze results, and solve real-world problems including DNA/RNA technologies, genetic engineering, and bioinformatics.</p>
+          </div>
           
-          <p><strong>Sports Medicine</strong> - Focuses on injury prevention, assessment, and treatment in athletic settings. Students learn anatomy, therapeutic techniques, and rehabilitation strategies with practical exercises simulating real-world sports care scenarios.</p>
+          <div class="course-card">
+            <h4>Phlebotomy</h4>
+            <p>Teaches safe blood collection and preparation for certification. Students learn anatomy, venipuncture, infection control, and patient communication with hands-on practice developing clinical skills and attention to detail.</p>
+          </div>
+          
+          <div class="course-card">
+            <h4>Sports Medicine</h4>
+            <p>Focuses on injury prevention, assessment, and treatment in athletic settings. Students learn anatomy, therapeutic techniques, and rehabilitation strategies with practical exercises simulating real-world sports care scenarios.</p>
+          </div>
+          
+          <div class="teachers-section">
+            <h3>Teachers</h3>
+            <ul class="teachers-list">
+              <li>Ms. Garcia - Introduction to Health Care (IHC)</li>
+              <li>Dr. Lee - Essentials to Biotechnology</li>
+              <li>Ms. Wilson - Essentials to Healthcare</li>
+              <li>Dr. Taylor - Biotechnology</li>
+              <li>Mr. Moore - Phlebotomy</li>
+              <li>Coach Jackson - Sports Medicine</li>
+            </ul>
+          </div>
         </div>
         
         <div class="event-panel" id="engineering">
@@ -98,11 +179,30 @@
           <p>The Engineering pathway develops students' technical skills in design, problem-solving, and innovation. Students learn engineering principles, CAD software, and hands-on project development. This pathway prepares students for careers in mechanical, civil, electrical, and software engineering.</p>
           
           <h3>Courses</h3>
-          <p><strong>Foundations of Engineering</strong> - Introduces engineering design, problem-solving, and technology applications. Students explore mechanics, materials, electronics, and CAD software with hands-on projects emphasizing creativity, collaboration, and critical thinking.</p>
           
-          <p><strong>Engineering Concepts</strong> - Builds on foundational knowledge through applied projects and problem solving. Students design, test, and refine solutions using engineering tools with emphasis on teamwork, project management, and iterative design.</p>
+          <div class="course-card">
+            <h4>Foundations of Engineering</h4>
+            <p>Introduces engineering design, problem-solving, and technology applications. Students explore mechanics, materials, electronics, and CAD software with hands-on projects emphasizing creativity, collaboration, and critical thinking.</p>
+          </div>
           
-          <p><strong>Engineering Applications</strong> - Allows students to apply principles to real-world challenges. Students work on interdisciplinary projects, analyze data, and optimize solutions with emphasis on innovation, sustainability, and professional practices.</p>
+          <div class="course-card">
+            <h4>Engineering Concepts</h4>
+            <p>Builds on foundational knowledge through applied projects and problem solving. Students design, test, and refine solutions using engineering tools with emphasis on teamwork, project management, and iterative design.</p>
+          </div>
+          
+          <div class="course-card">
+            <h4>Engineering Applications</h4>
+            <p>Allows students to apply principles to real-world challenges. Students work on interdisciplinary projects, analyze data, and optimize solutions with emphasis on innovation, sustainability, and professional practices.</p>
+          </div>
+          
+          <div class="teachers-section">
+            <h3>Teachers</h3>
+            <ul class="teachers-list">
+              <li>Mr. Harris - Foundations of Engineering</li>
+              <li>Ms. Clark - Engineering Concepts</li>
+              <li>Dr. Lewis - Engineering Applications</li>
+            </ul>
+          </div>
         </div>
         
         <div class="event-panel" id="av">
@@ -111,11 +211,30 @@
           <p>The AV Technology & Film pathway develops students' creative and technical skills in media production. Students learn camera operation, audio engineering, editing, and storytelling. This pathway prepares students for careers in film, television, digital media, and content creation.</p>
           
           <h3>Courses</h3>
-          <p><strong>AV Technology & Film I</strong> - Introduces audio and video production including camera operation, lighting, and sound recording. Students learn storytelling techniques and basic editing skills with hands-on projects developing technical skills and creativity.</p>
           
-          <p><strong>AV Technology & Film II</strong> - Expands media production skills with advanced editing, lighting, sound design, and special effects. Students work on collaborative projects simulating professional environments with emphasis on portfolio development and project management.</p>
+          <div class="course-card">
+            <h4>AV Technology & Film I</h4>
+            <p>Introduces audio and video production including camera operation, lighting, and sound recording. Students learn storytelling techniques and basic editing skills with hands-on projects developing technical skills and creativity.</p>
+          </div>
           
-          <p><strong>AV Technology & Film III</strong> - Emphasizes advanced media production including cinematography, audio mastering, and professional project management. Students produce independent and group projects for portfolios with focus on creativity, technical expertise, and real-world application.</p>
+          <div class="course-card">
+            <h4>AV Technology & Film II</h4>
+            <p>Expands media production skills with advanced editing, lighting, sound design, and special effects. Students work on collaborative projects simulating professional environments with emphasis on portfolio development and project management.</p>
+          </div>
+          
+          <div class="course-card">
+            <h4>AV Technology & Film III</h4>
+            <p>Emphasizes advanced media production including cinematography, audio mastering, and professional project management. Students produce independent and group projects for portfolios with focus on creativity, technical expertise, and real-world application.</p>
+          </div>
+          
+          <div class="teachers-section">
+            <h3>Teachers</h3>
+            <ul class="teachers-list">
+              <li>Mr. Rodriguez - AV Technology & Film I</li>
+              <li>Ms. White - AV Technology & Film II</li>
+              <li>Mr. King - AV Technology & Film III</li>
+            </ul>
+          </div>
         </div>
         
         <div class="event-panel" id="marketing">
@@ -124,15 +243,42 @@
           <p>The Marketing pathway teaches students to develop and execute marketing strategies for businesses and brands. Students learn consumer behavior, market research, digital marketing, and entrepreneurship. This pathway prepares students for careers in marketing, advertising, sales, and business management.</p>
           
           <h3>Courses</h3>
-          <p><strong>Marketing Principles</strong> - Introduces core concepts such as consumer behavior, market research, branding, and promotion. Students explore product development, advertising, and sales strategies with hands-on examples demonstrating real-world marketing applications.</p>
           
-          <p><strong>Marketing and Entrepreneurship</strong> - Explores marketing strategies for new ventures. Students develop business plans, branding, and sales campaigns with projects emphasizing creativity, problem-solving, and practical application.</p>
+          <div class="course-card">
+            <h4>Marketing Principles</h4>
+            <p>Introduces core concepts such as consumer behavior, market research, branding, and promotion. Students explore product development, advertising, and sales strategies with hands-on examples demonstrating real-world marketing applications.</p>
+          </div>
           
-          <p><strong>Introduction to Sports & Entertainment Marketing</strong> - Focuses on marketing within sports, entertainment, and events industries. Students learn about sponsorships, promotions, fan engagement, and social media strategies with hands-on projects simulating real-world marketing campaigns.</p>
+          <div class="course-card">
+            <h4>Marketing and Entrepreneurship</h4>
+            <p>Explores marketing strategies for new ventures. Students develop business plans, branding, and sales campaigns with projects emphasizing creativity, problem-solving, and practical application.</p>
+          </div>
           
-          <p><strong>Marketing Management</strong> - Teaches students to plan, implement, and evaluate comprehensive marketing strategies. Students analyze market trends, create campaigns, and study consumer behavior with emphasis on leadership, strategy, and communication.</p>
+          <div class="course-card">
+            <h4>Introduction to Sports & Entertainment Marketing</h4>
+            <p>Focuses on marketing within sports, entertainment, and events industries. Students learn about sponsorships, promotions, fan engagement, and social media strategies with hands-on projects simulating real-world marketing campaigns.</p>
+          </div>
           
-          <p><strong>Advanced Sports & Entertainment Marketing</strong> - Engages students in designing and executing large-scale marketing campaigns. Students analyze data, create brand strategies, and evaluate results with emphasis on creativity, collaboration, and strategic thinking.</p>
+          <div class="course-card">
+            <h4>Marketing Management</h4>
+            <p>Teaches students to plan, implement, and evaluate comprehensive marketing strategies. Students analyze market trends, create campaigns, and study consumer behavior with emphasis on leadership, strategy, and communication.</p>
+          </div>
+          
+          <div class="course-card">
+            <h4>Advanced Sports & Entertainment Marketing</h4>
+            <p>Engages students in designing and executing large-scale marketing campaigns. Students analyze data, create brand strategies, and evaluate results with emphasis on creativity, collaboration, and strategic thinking.</p>
+          </div>
+          
+          <div class="teachers-section">
+            <h3>Teachers</h3>
+            <ul class="teachers-list">
+              <li>Ms. Scott - Marketing Principles</li>
+              <li>Mr. Green - Marketing and Entrepreneurship</li>
+              <li>Ms. Adams - Introduction to Sports & Entertainment Marketing</li>
+              <li>Mr. Baker - Marketing Management</li>
+              <li>Ms. Nelson - Advanced Sports & Entertainment Marketing</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
