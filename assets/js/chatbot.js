@@ -2,9 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing chatbot...');
     
-    const chapterButton = document.getElementById('chapterButton');
-    const ctaeButton = document.getElementById('ctaeButton');
-    const aboutButton = document.getElementById('aboutButton');
+    const backButton = document.getElementById('backButton');
     const chat = document.getElementById("chat");
     const userInput = document.getElementById("userInput");
     const sendBtn = document.getElementById("sendBtn");
@@ -12,9 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const quickBtns = document.getElementById("quickBtns");
 
     console.log('Elements found:', {
-        chapterButton: !!chapterButton,
-        ctaeButton: !!ctaeButton,
-        aboutButton: !!aboutButton,
+        backButton: !!backButton,
         chat: !!chat,
         userInput: !!userInput,
         sendBtn: !!sendBtn,
@@ -22,22 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
         quickBtns: !!quickBtns
     });
     
-    // Navigation button event listeners
-    if (chapterButton) {
-        chapterButton.addEventListener('click', function() {
-            window.location.href = '../chapter/chapter.html';
-        });
-    }
-    
-    if (ctaeButton) {
-        ctaeButton.addEventListener('click', function() {
-            window.location.href = '../ctae/ctae.html';
-        });
-    }
-    
-    if (aboutButton) {
-        aboutButton.addEventListener('click', function() {
-            window.location.href = '../about/about.html';
+    // Navigation button event listener
+    if (backButton) {
+        backButton.addEventListener('click', function() {
+            window.location.href = '../Project/project.html';
         });
     }
 
@@ -302,6 +286,27 @@ document.addEventListener('DOMContentLoaded', function() {
     if (userInput) {
         userInput.addEventListener("keydown", (e) => {
             if(e.key === "Enter") handleInput(userInput.value);
+        });
+    }
+
+    // Submission form functionality
+    const feedbackInput = document.getElementById("feedbackInput");
+    const submissionMessage = document.getElementById("submissionMessage");
+    
+    if (feedbackInput) {
+        feedbackInput.addEventListener("keydown", (e) => {
+            if(e.key === "Enter" && feedbackInput.value.trim()) {
+                // Hide input and show thank you message
+                feedbackInput.style.display = "none";
+                submissionMessage.style.display = "block";
+                
+                // Optional: Reset after 5 seconds
+                setTimeout(() => {
+                    feedbackInput.value = "";
+                    feedbackInput.style.display = "block";
+                    submissionMessage.style.display = "none";
+                }, 5000);
+            }
         });
     }
 

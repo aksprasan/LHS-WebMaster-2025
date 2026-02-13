@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- TSA INFO ANIMATE ON SCROLL ---------- */
   const tsaSection = document.getElementById('tsaInfoSection');
   const tsaWhoSection = document.getElementById('tsaWhoSection');
+  const tsaCreedSection = document.getElementById('tsaCreedSection');
 
   function onScroll() {
     if (tsaWhoSection) {
@@ -93,6 +94,16 @@ document.addEventListener("DOMContentLoaded", () => {
         tsaSection.classList.add('animate-up-active');
       } else {
         tsaSection.classList.remove('animate-up-active');
+      }
+    }
+
+    if (tsaCreedSection) {
+      const rectCreed = tsaCreedSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rectCreed.top < windowHeight - 100) {
+        tsaCreedSection.classList.add('animate-up-active');
+      } else {
+        tsaCreedSection.classList.remove('animate-up-active');
       }
     }
   }

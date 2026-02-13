@@ -4,33 +4,208 @@
   <meta charset="UTF-8">
   <title>Forsyth Care Connect - Project</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../Style/chapter.css">
+  <link rel="stylesheet" href="../assets/css/chapter.css">
   <style>
-    /* Override text colors for better visibility */
-    .tsa-info-section p,
-    .tsa-info-section li,
-    .tsa-info-section ul {
-      color: #222 !important;
-      opacity: 1 !important;
-      visibility: visible !important;
+    /* Project page custom styles */
+    .introduction-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
-    
-    .tsa-who-section p {
-      color: #222 !important;
-      opacity: 1 !important;
-      visibility: visible !important;
+
+    #tsaWhoSection {
+      text-align: center;
+      padding: 40px 40px;
+      margin: 60px 0;
+      background: linear-gradient(135deg, #b42828 0%, #d94444 100%);
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(180, 40, 40, 0.4);
+      animation: floatHeader 3s ease-in-out infinite;
     }
-    
-    /* Ensure sections are visible */
-    .tsa-info-section,
-    .tsa-who-section {
-      opacity: 1 !important;
-      visibility: visible !important;
+
+    @keyframes floatHeader {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
-    
-    /* Make sure background is white for readability */
+
+    #tsaWhoSection h1 {
+      color: #fff !important;
+      font-size: 3.2rem !important;
+      margin-bottom: 30px !important;
+      font-weight: bold !important;
+      letter-spacing: 0.5px;
+    }
+
+    /* Description paragraph below header */
+    .tsa-description {
+      text-align: center;
+      padding: 25px 40px;
+      margin: 20px auto 40px auto;
+      color: #333;
+      font-size: 1.3rem;
+      max-width: 1000px;
+      line-height: 1.9;
+      font-weight: 300;
+      background: #fff;
+      border: 2px solid #b42828;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(180, 40, 40, 0.15);
+    }
+
+    /* Section container for 2-column layout */
+    .sections-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    .sections-container.full-width {
+      grid-template-columns: 1fr;
+    }
+
+    /* Individual section layout */
     .tsa-info-section {
-      background: #fff !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      display: block;
+      scroll-margin-top: 150px;
+    }
+
+    .section-content {
+      padding: 40px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .section-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .tsa-info-section h1 {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 2rem !important;
+      color: #b42828 !important;
+      margin-bottom: 20px !important;
+      margin-top: 0 !important;
+    }
+
+    .tsa-info-section p {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 0.95rem !important;
+      color: #333 !important;
+      line-height: 1.8;
+      margin-bottom: 16px !important;
+    }
+
+    .tsa-info-section p:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    #what {
+      margin-top: 0 !important;
+    }
+
+    #function {
+      /* In 2-column grid */
+    }
+
+    #how {
+      /* In 2-column grid */
+    }
+
+    #support {
+      grid-column: 1 / -1;
+    }
+
+    #support .section-content {
+      max-width: 100%;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .support-item {
+      padding: 30px;
+      background: linear-gradient(135deg, #f9f5f5 0%, #fff 100%);
+      border-left: 4px solid #b42828;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .support-item h3 {
+      color: #b42828;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+
+    .support-item p {
+      color: #555;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    #why {
+      margin-bottom: 60px !important;
+    }
+
+    .tsa-info-btn {
+      display: inline-block;
+      margin-top: 20px !important;
+      padding: 14px 40px !important;
+      background: linear-gradient(135deg, #b42828 0%, #d94444 100%) !important;
+      color: #fff !important;
+      border: none !important;
+      border-radius: 8px !important;
+      font-size: 1.05rem !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      box-shadow: 0 6px 20px rgba(180, 40, 40, 0.3) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .tsa-info-btn:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 10px 30px rgba(180, 40, 40, 0.5) !important;
+      background: linear-gradient(135deg, #d94444 0%, #b42828 100%) !important;
+    }
+
+    @media (max-width: 900px) {
+      .sections-container {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+        margin: 60px auto;
+      }
+
+      .section-content {
+        padding: 30px !important;
+      }
+
+      .tsa-info-section h1 {
+        font-size: 1.6rem !important;
+      }
+
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -40,8 +215,9 @@
   <nav class="top-navbar">
     <div class="top-navbar-content">
       <div class="top-navbar-logos">
-        <img src="../img/LamertLogo.png" alt="Lambert Logo" class="navbar-logo-img">
-        <img src="../img/Tsalogo-Photoroom.png" alt="TSA Logo" class="navbar-logo-img">
+        <img src="../assets/img/LamertLogo.png" alt="Lambert Logo" class="navbar-logo-img">
+        <img src="../assets/img/Tsalogo-Photoroom.png" alt="TSA Logo" class="navbar-logo-img">
+        <img src="../assets/img/LambertTSALogo.png" alt="Lambert TSA Logo" class="navbar-logo-img">
       </div>
       <div class="top-navbar-links">
         <a href="../about/about.html" class="top-nav-btn">About</a>
@@ -57,15 +233,15 @@
       <li><a href="#what"><b>What is it?</b></a></li>
       <li><a href="#function"><b>Function</b></a></li>
       <li><a href="#how"><b>How It Works</b></a></li>
-      <li><a href="#support"><b>Support Areas</b></a></li>
       <li><a href="#why"><b>Why It Matters</b></a></li>
+      <li><a href="#support"><b>Support Areas</b></a></li>
     </ul>
   </nav>
 
   <!-- Hero Section -->
   <div class="carousel">
-    <img src="../img/img1.jpg" alt="Community Support" class="active">
-    <img src="../img/img2.jpg" alt="Technology">
+    <img src="../assets/img/img1.jpg" alt="Community Support" class="active">
+    <img src="../assets/img/img2.jpg" alt="Technology">
     
     <div class="carousel-overlay">
       <h1>Forsyth Care Connect</h1>
@@ -74,129 +250,118 @@
 
   <!-- Introduction Section -->
   <div class="introduction-section">
-    <div class="tsa-who-section animate-up" id="tsaWhoSection">
+    <div id="tsaWhoSection">
       <h1>Your AI Powered Community Resource Assistant</h1>
-      <p>Forsyth Care Connect is an advanced AI-powered chatbot designed to help residents of Forsyth County, Georgia, locate local resources and community services quickly and efficiently.</p>
     </div>
+    <p class="tsa-description">Forsyth Care Connect is an advanced AI-powered chatbot designed to help residents of Forsyth County, Georgia, locate local resources and community services quickly and efficiently.</p>
 
-    <!-- What is Forsyth Care Connect Section -->
-    <div class="tsa-info-section animate-up" id="what">
-      <h1>What is Forsyth Care Connect?</h1>
-      <p>
-    Forsyth Care Connect is an advanced AI-powered chatbot designed to help residents of Forsyth County, Georgia, 
-    locate local resources and community services quickly and efficiently. The platform allows users to communicate 
-    their needs in natural, everyday language, eliminating the frustration of searching through multiple websites 
-    or making numerous phone calls. Whether someone is experiencing food insecurity, housing instability, financial 
-    difficulties, or mental health challenges, Forsyth Care Connect provides direct guidance to verified local 
-    programs and organizations. It serves as a centralized hub where residents can receive information on emergency 
-    services, nonprofits, government programs, and community initiatives without having to navigate complex systems. 
-    The chatbot’s accessibility ensures that users of all ages and technical skill levels can find help when they 
-    need it most. It is designed to simplify the process of connecting residents to the services available in 
-    Forsyth County while saving time and reducing stress. By providing actionable and relevant information in real-time, 
-    Forsyth Care Connect empowers individuals to take immediate steps toward receiving assistance. The platform also 
-    fosters a sense of confidence in the community, as residents know they have a reliable digital resource available 
-    at all times. Its intuitive design encourages users to engage naturally, providing a seamless experience that 
-    feels conversational rather than transactional. Forsyth Care Connect ultimately strengthens the bridge between 
-    residents and the support systems designed to help them thrive. It ensures that no one has to struggle alone 
-    when assistance is available nearby.
-      </p>
+    <!-- Content Sections Container -->
+    <div class="sections-container">
+      <!-- What is Forsyth Care Connect Section -->
+      <div class="tsa-info-section" id="what">
+      <div class="section-content">
+        <h1>What is Forsyth Care Connect?</h1>
+        <p>
+          Forsyth Care Connect is an advanced AI-powered chatbot designed to help residents of Forsyth County, Georgia, 
+          locate local resources and community services quickly and efficiently. The platform allows users to communicate 
+          their needs in natural, everyday language, eliminating the frustration of searching through multiple websites 
+          or making numerous phone calls.
+        </p>
+        <p>
+          Whether someone is experiencing food insecurity, housing instability, financial 
+          difficulties, or mental health challenges, Forsyth Care Connect provides direct guidance to verified local 
+          programs and organizations. It serves as a centralized hub where residents can receive information on emergency 
+          services, nonprofits, government programs, and community initiatives.
+        </p>
+      </div>
     </div>
 
     <!-- Primary Function Section -->
-    <div class="tsa-info-section animate-up" id="function">
-      <h1>Primary Function</h1>
-      <p>
-    The primary function of Forsyth Care Connect is to evaluate the user’s needs and connect them to the most 
-    appropriate local resources available in Forsyth County. When a user types a request, the chatbot uses natural 
-    language processing to interpret intent and identify critical details such as urgency and type of assistance 
-    needed. Based on this analysis, it provides tailored recommendations for organizations, programs, or services 
-    that can address the request effectively. The platform not only provides contact information but also gives clear 
-    instructions on how to access each service, including website links, phone numbers, or physical locations. It 
-    ensures that residents know exactly what steps to take, minimizing confusion and delays. Forsyth Care Connect is 
-    designed to complement existing community services rather than replace them, helping to improve visibility and 
-    accessibility of local resources. The chatbot focuses on offering practical guidance for a wide range of situations, 
-    including food assistance, housing support, utility bill help, healthcare services, and mental health programs. 
-    By centralizing these resources, it saves users time and effort, which can be especially critical during times 
-    of personal or financial stress. The system is constantly updated to ensure that information is accurate, current, 
-    and reliable. It serves as a digital bridge, empowering residents to take proactive steps toward stability and 
-    well-being. Forsyth Care Connect also reduces the barrier to entry for people who may feel overwhelmed by 
-    bureaucracy, making access to help faster, simpler, and less intimidating. Overall, its primary purpose is to 
-    connect residents with the support they need as efficiently as possible while providing clear guidance every step of the way.
-      </p>
+    <div class="tsa-info-section" id="function">
+      <div class="section-content">
+        <h1>Primary Function</h1>
+        <p>
+          The primary function of Forsyth Care Connect is to evaluate the user's needs and connect them to the most 
+          appropriate local resources available in Forsyth County. When a user types a request, the chatbot uses natural 
+          language processing to interpret intent and identify critical details such as urgency and type of assistance needed.
+        </p>
+        <p>
+          Based on this analysis, it provides tailored recommendations for organizations, programs, or services 
+          that can address the request effectively. The platform not only provides contact information but also gives clear 
+          instructions on how to access each service, including website links, phone numbers, or physical locations.
+        </p>
+      </div>
     </div>
 
     <!-- How It Works Section -->
-    <div class="tsa-info-section animate-up" id="how">
-      <h1>How It Works</h1>
-      <p>
-    Forsyth Care Connect operates through a simple yet powerful four-step process that makes accessing local 
-    resources intuitive and effective. First, users describe their situation using natural language, entering 
-    statements like "I need help paying my rent," "I need groceries," or "I am seeking mental health support." 
-    The system is designed to understand these everyday phrases, eliminating the need for technical commands or 
-    exact wording. Next, the chatbot processes the input using advanced natural language processing techniques 
-    to analyze keywords, context, and intent. This allows it to accurately categorize the request into relevant 
-    service areas such as food, housing, utilities, healthcare, or crisis intervention. Once the user’s need has 
-    been identified, Forsyth Care Connect searches its database of verified local organizations and programs to 
-    match the request with appropriate resources. The chatbot presents the results in a clear, structured format, 
-    providing descriptions, contact details, and step-by-step instructions for accessing assistance. In situations 
-    where urgency or crisis is detected, the platform immediately directs users to emergency contacts such as 911 
-    or the 988 Suicide and Crisis Lifeline to ensure safety. Throughout this process, the user receives 
-    actionable, locally relevant guidance that can be applied immediately, reducing stress and uncertainty. The 
-    chatbot’s conversational interface creates a friendly and approachable experience, making it easier for 
-    residents to engage with the platform. By combining AI-driven intent recognition with a curated database of 
-    community services, Forsyth Care Connect provides a seamless and reliable way to navigate the complex landscape 
-    of local support. Its goal is to empower individuals and families to quickly find the help they need while 
-    fostering confidence and independence.
-      </p>
-    </div>
-
-    <!-- Areas of Support Section -->
-    <div class="tsa-info-section animate-up" id="support">
-      <h1>Areas of Support</h1>
-      <p>
-    Forsyth Care Connect provides comprehensive assistance across a wide variety of essential service areas 
-    to meet the diverse needs of residents. In the area of food assistance, the chatbot connects users with local 
-    food banks, meal distribution programs, and information about supplemental nutrition programs such as SNAP. 
-    For housing and eviction support, it recommends rental assistance programs, temporary shelters, and housing 
-    counseling services. Utility assistance programs, including electricity, gas, and water bill support, are also 
-    provided to ensure families can maintain access to basic necessities. Mental health and crisis resources are 
-    a critical component, offering access to counseling services, hotlines, and crisis intervention programs. 
-    Healthcare support includes connections to low-cost clinics, preventive care, and guidance on insurance options. 
-    Additionally, Forsyth Care Connect links residents to local nonprofits and community organizations that provide 
-    family services, financial aid, and ongoing community support. By centralizing this information, the platform 
-    ensures that residents can quickly find and access multiple forms of support from a single source. Each resource 
-    is carefully verified to ensure reliability and accuracy, giving users confidence that they are receiving trusted 
-    guidance. Forsyth Care Connect’s wide coverage reflects the goal of addressing both immediate needs and long-term 
-    stability for individuals and families within the community. Through these efforts, the platform strengthens 
-    the network of assistance in Forsyth County and promotes community resilience.
-      </p>
-      <button class="tsa-info-btn" onclick="window.location.href='../Chatbot/chatbot.html'">Try the Chatbot</button>
+    <div class="tsa-info-section" id="how">
+      <div class="section-content">
+        <h1>How It Works</h1>
+        <p>
+          Forsyth Care Connect operates through a simple yet powerful four-step process that makes accessing local 
+          resources intuitive and effective. First, users describe their situation using natural language, entering 
+          statements like "I need help paying my rent," "I need groceries," or "I am seeking mental health support."
+        </p>
+        <p>
+          Next, the chatbot processes the input using advanced natural language processing techniques 
+          to analyze keywords, context, and intent. This allows it to accurately categorize the request into relevant 
+          service areas such as food, housing, utilities, healthcare, or crisis intervention.
+        </p>
+      </div>
     </div>
 
     <!-- Why It Matters Section -->
-    <div class="tsa-info-section animate-up" id="why">
-      <h1>Why It Matters</h1>
-      <p>
-    Forsyth Care Connect is an essential tool for residents of Forsyth County because it removes the barriers that 
-    often prevent people from accessing support during times of need. Many individuals may feel overwhelmed by the 
-    number of available programs or uncertain about where to start, causing delays in receiving help that could 
-    improve their stability and well-being. By consolidating information into a single, user-friendly platform, 
-    Forsyth Care Connect provides immediate access to critical resources and actionable guidance. It fosters awareness 
-    of community programs that many residents may not even know exist, such as local nonprofits, emergency shelters, 
-    and healthcare services. The platform also promotes safety by recognizing potential crises and directing users 
-    to emergency hotlines and immediate assistance when necessary. In addition to addressing urgent needs, Forsyth 
-    Care Connect supports long-term stability by providing guidance on programs that can prevent future hardships, 
-    such as financial counseling, rental support, and access to medical care. Its AI-powered interface ensures that 
-    residents receive relevant, accurate, and up-to-date information tailored to their specific situation. By improving 
-    access to local resources and simplifying the process of finding help, the platform strengthens both individual 
-    resilience and overall community well-being. Forsyth Care Connect demonstrates how technology can be used to 
-    improve the lives of residents, enhance social support networks, and promote a healthier, more informed, and 
-    connected community for everyone in Forsyth County.
-      </p>
+    <div class="tsa-info-section" id="why">
+      <div class="section-content">
+        <h1>Why It Matters</h1>
+        <p>
+          Forsyth Care Connect is an essential tool for residents of Forsyth County because it removes the barriers that 
+          often prevent people from accessing support during times of need. Many individuals may feel overwhelmed by the 
+          number of available programs or uncertain about where to start.
+        </p>
+        <p>
+          By consolidating information into a single, user-friendly platform, 
+          Forsyth Care Connect provides immediate access to critical resources and actionable guidance. It demonstrates how 
+          technology can be used to improve the lives of residents and promote a healthier, more informed, and 
+          connected community for everyone in Forsyth County.
+        </p>
+      </div>
+    </div>
+
+    <!-- Areas of Support Section -->
+    <div class="tsa-info-section" id="support">
+      <div class="section-content">
+        <h1>Areas of Support</h1>
+        <p>
+          Forsyth Care Connect provides comprehensive assistance across a wide variety of essential service areas 
+          to meet the diverse needs of residents. Each resource is carefully verified to ensure reliability and accuracy.
+        </p>
+        
+        <div class="support-grid">
+          <div class="support-item">
+            <h3>🍽️ Food Assistance</h3>
+            <p>Local food banks, meal distribution programs, and SNAP information</p>
+          </div>
+          <div class="support-item">
+            <h3>🏠 Housing Support</h3>
+            <p>Rental assistance, temporary shelters, and counseling services</p>
+          </div>
+          <div class="support-item">
+            <h3>💡 Utility Assistance</h3>
+            <p>Electricity, gas, and water bill support programs</p>
+          </div>
+          <div class="support-item">
+            <h3>🧠 Mental Health</h3>
+            <p>Counseling services, hotlines, and crisis intervention</p>
+          </div>
+        </div>
+        
+        <button class="tsa-info-btn" onclick="window.location.href='../Chatbot/chatbot.html'">Try the Chatbot</button>
+      </div>
+    </div>
     </div>
   </div>
 
-  <script src="../js/chapter.js"></script>
+  <script src="../assets/js/chapter.js"></script>
 </body>
 </html>
-

@@ -1,0 +1,381 @@
+/* CTAE CSS - Separate styles for Career & Technical Education page */
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  background: linear-gradient(135deg, #f0eded 0%, #e8e3e3 100%);
+}
+
+/* Top black nav bar styles */
+.top-navbar {
+  width: 100vw;
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 30px rgba(180, 40, 40, 0.3);
+  z-index: 100;
+  position: relative;
+  border-bottom: 2px solid rgba(180, 40, 40, 0.6);
+  animation: slideDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter: blur(10px);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.top-navbar-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.top-navbar-logos {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: 120px;
+}
+
+.top-navbar-logos .navbar-logo-img:first-child {
+  height: 100px;
+  width: auto;
+}
+
+.top-navbar-logos .navbar-logo-img:last-child {
+  height: 80px;
+  width: auto;
+  margin-left: auto;
+  margin-right: 180px;
+}
+
+.navbar-logo-img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.top-navbar-links {
+  display: flex;
+  gap: 18px;
+}
+
+.top-nav-btn {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: #fff;
+  border: 2px solid rgba(180, 40, 40, 0.6);
+  border-radius: 7px;
+  padding: 10px 32px;
+  font-size: 1.1rem;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 20px rgba(180, 40, 40, 0.15);
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.top-nav-btn:hover {
+  background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+  color: #111;
+  border-color: #b42828;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(180, 40, 40, 0.6), 0 0 30px rgba(180, 40, 40, 0.4);
+}
+
+@media (max-width: 700px) {
+  .top-navbar-content {
+    padding: 0 8px;
+  }
+  .top-navbar-logos {
+    margin-left: 10px;
+    gap: 10px;
+  }
+  .top-navbar-logos .navbar-logo-img:first-child {
+    height: 60px;
+  }
+  .top-navbar-logos .navbar-logo-img:last-child {
+    height: 40px;
+    margin-right: 20px;
+  }
+  .navbar-logo-img {
+    height: 40px;
+  }
+  .top-navbar {
+    height: 56px;
+  }
+}
+
+/* Secondary navbar styles */
+.navbar {
+  margin-top: 0;
+  background: linear-gradient(90deg, rgb(180, 40, 40) 0%, rgb(200, 60, 60) 50%, rgb(180, 40, 40) 100%);
+  background-size: 200% 100%;
+  animation: navGradient 4s ease infinite;
+  box-shadow: 0 4px 20px rgba(180, 40, 40, 0.5), 0 0 30px rgba(180, 40, 40, 0.3);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 99;
+  transition: all 0.3s ease;
+  height: auto;
+}
+
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 99;
+  animation: navbarShrink 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  height: 48px;
+}
+
+@keyframes navbarShrink {
+  from {
+    height: 80px;
+  }
+  to {
+    height: 48px;
+  }
+}
+
+.navbar.sticky a {
+  animation: navbarTextShrink 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  padding: 14px 40px;
+}
+
+@keyframes navbarTextShrink {
+  from {
+    font-size: 22.5px;
+    padding: 20px 50px;
+  }
+  to {
+    font-size: 16px;
+    padding: 14px 40px;
+  }
+}
+
+@keyframes navGradient {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 20px 50px;
+  font-size: 22.5px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: block;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  z-index: 1;
+}
+
+.navbar a:hover {
+  background-color: rgba(180, 40, 40, 0.6);
+  transform: translateY(-4px);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+/* CTAE Pathways Section */
+.events-section {
+  width: 100vw;
+  margin: 0;
+  padding: 60px 0;
+  background: linear-gradient(135deg, #e8e8e8 0%, #f0f0f0 100%);
+  color: #333;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.events-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(120, 30, 30, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.events-section-content {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.events-section-content h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #782020;
+  margin-bottom: 40px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.events-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.event-tab {
+  background: none;
+  border: none;
+  padding: 15px 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.1rem;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-bottom: 3px solid transparent;
+  margin: 0 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-tab::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #782020, #8b2828);
+  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.event-tab:hover {
+  color: #782020;
+  transform: translateY(-2px);
+}
+
+.event-tab:hover::before {
+  width: 100%;
+}
+
+.event-tab.active {
+  color: #782020;
+  font-weight: bold;
+  border-bottom-color: #782020;
+  box-shadow: 0 4px 15px rgba(120, 30, 30, 0.2);
+}
+
+.events-content {
+  min-height: 500px;
+}
+
+.event-panel {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.event-panel.active {
+  display: block;
+}
+
+.event-panel h2 {
+  font-size: 2rem;
+  color: #782020;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.event-panel h3 {
+  font-size: 1.3rem;
+  color: #782020;
+  margin: 25px 0 15px 0;
+  font-weight: bold;
+}
+
+.event-panel p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.event-panel ul {
+  margin: 20px 0 25px 40px;
+  padding-left: 20px;
+}
+
+.event-panel li {
+  margin-bottom: 12px;
+  line-height: 1.8;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 800px) {
+  .events-tabs {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .event-tab {
+    padding: 12px 20px;
+    font-size: 1rem;
+    margin: 5px;
+  }
+}
+/* Additional animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(180, 40, 40, 0.4), inset 0 0 20px rgba(180, 40, 40, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(180, 40, 40, 0.7), inset 0 0 30px rgba(180, 40, 40, 0.25); }
+}
